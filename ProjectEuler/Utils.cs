@@ -1,11 +1,177 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 
 namespace ProjectEuler
 {
     internal static class Utils
     {
+        private static Random rand = new Random();
+
+        public static BigInteger Pow(long b, int n)
+        {
+            if (n == 0)
+            {
+                return 1;
+            }
+
+            if (n == 1)
+            {
+                return b;
+            }
+
+            var half = Pow(b, n / 2);
+            if (n % 2 == 0)
+            {
+                return half * half;
+            }
+            else
+            {
+                return half * half * b;
+            }
+        }
+
+        public static IEnumerable<IEnumerable<T>> Combination<T>(IEnumerable<T> source, int n)
+        {
+            if (source.Count() < n)
+            {
+                return null;
+            }
+
+            int[] temp = new int[n];
+            List<List<T>> list = new List<List<T>>();
+            Combination(ref list, source, source.Count(), n, temp, n);
+            return list;
+        }
+
+        private static void Combination<T>(ref List<List<T>> list, IEnumerable<T> t, int n, int m, int[] b, int M)
+        {
+            for (int i = n; i >= m; i--)
+            {
+                b[m - 1] = i - 1;
+                if (m > 1)
+                {
+                    Combination(ref list, t, i - 1, m - 1, b, M);
+                }
+                else
+                {
+                    List<T> temp = new List<T>(M);
+                    for (int j = 0; j < b.Length; j++)
+                    {
+                        temp.Insert(j, t.ElementAt(b[j]));
+                    }
+                    list.Add(temp);
+                }
+            }
+        }
+
+        public static int GetCoprimeCount(int n)
+        {
+            int ret = 1;
+            for (int i = 2; i * i <= n; i++)
+            {
+                if (n % i == 0)
+                {
+                    n /= i;
+                    ret *= i - 1;
+                    while (n % i == 0)
+                    {
+                        n /= i;
+                        ret *= i;
+                    }
+                }
+            }
+            if (n > 1)
+            {
+                ret *= n - 1;
+            }
+
+            return ret;
+        }
+
+        public static long GetLcm(long a, long b)
+        {
+            long gcd = GetGcd(a, b);
+
+            return a / gcd * b;
+        }
+
+        public static Dictionary<long, int> Factorize(long n, long[] primes)
+        {
+            List<long> factors = new List<long>();
+            Factorize(n, primes, factors);
+
+            var maps = new Dictionary<long, int>();
+            foreach (var factor in factors)
+            {
+                if (maps.ContainsKey(factor))
+                {
+                    maps[factor]++;
+                }
+                else
+                {
+                    maps[factor] = 1;
+                }
+            }
+
+            return maps;
+        }
+
+        private static void Factorize(long n, long[] primes, List<long> factors)
+        {
+            if (n == 1)
+            {
+                return;
+            }
+
+            if (primes[n] == n)
+            {
+                factors.Add(n);
+                return;
+            }
+
+            long divisor = PollardRho(n);
+            Factorize(divisor, primes, factors);
+            Factorize(n / divisor, primes, factors);
+        }
+
+        //pollard rho implementation
+        private static long PollardRho(long n)
+        {
+            if (n % 2 == 0)
+                return 2;
+
+            long x = rand.Next() % n + 1;
+            long c = rand.Next() % n + 1;
+            long y = x;
+            long g = 1;
+
+            //fn is f(x) = x*x + c
+            while (g == 1)
+            {
+                x = ((x * x) % n + c) % n;
+                y = ((y * y) % n + c) % n;
+                y = ((y * y) % n + c) % n;
+                g = GetGcd(Math.Abs(x - y), n);
+            }
+
+            return g;
+        }
+
+        public static long GetGcd(long a, long b)
+        {
+            long r = a % b;
+            while (r > 0)
+            {
+                a = b;
+                b = r;
+                r = a % b;
+            }
+
+            return b;
+        }
+
         public static long GetCombinationsCount(long total, long pickedCount)
         {
             long count = 1;
@@ -198,7 +364,7 @@ namespace ProjectEuler
             }
         }
 
-        public static bool IsPermutation(int x, int y)
+        public static bool IsPermutation(long x, long y)
         {
             if (x == y)
             {

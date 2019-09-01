@@ -12,11 +12,22 @@ namespace XUnitTestProjectEuler
             Assert.Equal("70600674", new S11().GetAnswer());
             Assert.Equal("76576500", new S12().GetAnswer());
             Assert.Equal("837799", new S14().GetAnswer());
+            Assert.Equal("871198282", new S22().GetAnswer());
+            Assert.Equal("4782", new S25().GetAnswer());
+            Assert.Equal("-59231", new S27().GetAnswer());
             Assert.Equal("9183", new S29().GetAnswer());
             Assert.Equal("73682", new S31().GetAnswer());
+            Assert.Equal("45228", new S32().GetAnswer());
             Assert.Equal("40730", new S34().GetAnswer());
+            Assert.Equal("55", new S35().GetAnswer());
+            Assert.Equal("872187", new S36().GetAnswer());
+            Assert.Equal("748317", new S37().GetAnswer());
+            Assert.Equal("932718654", new S38().GetAnswer());
             Assert.Equal("7652413", new S41().GetAnswer());
             Assert.Equal("16695334890", new S43().GetAnswer());
+            Assert.Equal("5777", new S46().GetAnswer());
+            Assert.Equal("134043", new S47().GetAnswer());
+            Assert.Equal("296962999629", new S49().GetAnswer());
             Assert.Equal("997651", new S50().GetAnswer());
         }
     }
@@ -28,12 +39,22 @@ namespace XUnitTestProjectEuler
         public void Test051To100()
         {
             Assert.Equal("142857", new S52().GetAnswer());
+            Assert.Equal("249", new S55().GetAnswer());
             Assert.Equal("972", new S56().GetAnswer());
+            Assert.Equal("26241", new S58().GetAnswer());
+            Assert.Equal("26033", new S60().GetAnswer()); // ~2.3s
             Assert.Equal("28684", new S61().GetAnswer());
             Assert.Equal("272", new S65().GetAnswer());
             Assert.Equal("7273", new S67().GetAnswer());
+            Assert.Equal("8319823", new S70().GetAnswer()); // ~2s
+            Assert.Equal("428570", new S71().GetAnswer());
+            Assert.Equal("303963552391", new S72().GetAnswer());
+            Assert.Equal("7295372", new S73().GetAnswer());
             Assert.Equal("402", new S74().GetAnswer());
+            Assert.Equal("161667", new S75().GetAnswer());
+            Assert.Equal("71", new S77().GetAnswer());
             Assert.Equal("40886", new S80().GetAnswer());
+            Assert.Equal("1097343", new S87().GetAnswer());
             Assert.Equal("756872327473", new S100().GetAnswer());
         }
     }
@@ -45,7 +66,9 @@ namespace XUnitTestProjectEuler
         public void Test101To150()
         {
             Assert.Equal("228", new S102().GetAnswer());
-            Assert.Equal("329468", new S104().GetAnswer());
+            Assert.Equal("329468", new S104().GetAnswer()); // ~2.5s
+            Assert.Equal("21417", new S124().GetAnswer());
+            Assert.Equal("2906969179", new S125().GetAnswer());
         }
     }
 
@@ -55,8 +78,8 @@ namespace XUnitTestProjectEuler
         [Fact]
         public void Test151To200()
         {
-            Assert.Equal("986262", new S179().GetAnswer());
-            Assert.Equal("17427258", new S187().GetAnswer());
+            Assert.Equal("986262", new S179().GetAnswer()); // ~2s
+            Assert.Equal("17427258", new S187().GetAnswer()); // ~2s
         }
     }
 
@@ -77,7 +100,10 @@ namespace XUnitTestProjectEuler
         [Fact]
         public void Test301To350()
         {
-            Assert.Equal("1004195061", new S348().GetAnswer());
+            Assert.Equal("13625242", new S315().GetAnswer());
+            Assert.Equal("336108797689259276", new S346().GetAnswer());
+            Assert.Equal("11109800204052", new S347().GetAnswer()); // ~1.3s
+            Assert.Equal("1004195061", new S348().GetAnswer()); // 3.8s
         }
     }
 
@@ -87,9 +113,19 @@ namespace XUnitTestProjectEuler
         [Fact]
         public void Test351To400()
         {
-            Assert.Equal("1739023853137", new S357().GetAnswer());
-            Assert.Equal("139602943319822", new S381().GetAnswer());
+            Assert.Equal("1739023853137", new S357().GetAnswer()); //5.5s
+            Assert.Equal("139602943319822", new S381().GetAnswer()); // 5.8s
             Assert.Equal("696067597313468", new S387().GetAnswer());
+        }
+    }
+
+    [Collection("Collection #09")]
+    public class UnitTest09
+    {
+        [Fact]
+        public void Test401To450()
+        {
+            Assert.Equal("98792821", new S429().GetAnswer()); // ~18s
         }
     }
 
@@ -99,7 +135,32 @@ namespace XUnitTestProjectEuler
         [Fact]
         public void Test451To500()
         {
+            Assert.Equal("194505988824000", new S491().GetAnswer());
             Assert.Equal("6.818741802", new S493().GetAnswer());
+            Assert.Equal("35407281", new S500().GetAnswer());
+        }
+    }
+
+    [Collection("Collection #11")]
+    public class UnitTest11
+    {
+        [Fact]
+        public void Test501To550()
+        {
+            Assert.Equal("694687", new S504().GetAnswer()); // ~4.2s
+            Assert.Equal("939087315", new S516().GetAnswer()); // ~2.8s
+            Assert.Equal("100315739184392", new S518().GetAnswer()); // 30s, to be optimized
+            Assert.Equal("476001479068717", new S549().GetAnswer()); // 19s
+        }
+    }
+
+    [Collection("Collection #13")]
+    public class UnitTest13
+    {
+        [Fact]
+        public void Test601To650()
+        {
+            Assert.Equal("1617243", new S601().GetAnswer());
         }
     }
 }
