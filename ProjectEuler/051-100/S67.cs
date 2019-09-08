@@ -59,7 +59,7 @@ namespace ProjectEuler
             }
         }
 
-        static string triangle = @"
+        private static readonly string triangle = @"
 59
 73 41
 52 40 09

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProjectEuler
+﻿namespace ProjectEuler
 {
     public class S179 : ISolution
     {

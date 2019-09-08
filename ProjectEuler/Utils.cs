@@ -7,7 +7,7 @@ namespace ProjectEuler
 {
     internal static class Utils
     {
-        private static Random rand = new Random();
+        private static readonly Random rand = new Random();
 
         public static BigInteger Pow(long b, int n)
         {

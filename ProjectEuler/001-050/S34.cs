@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace ProjectEuler
 {
     public class S34 : ISolution
     {
-        List<int> factorials = new List<int>
+        private static readonly List<int> factorials = new List<int>
         {
             (int)Utils.Factorial(0),
             (int)Utils.Factorial(1),
@@ -21,18 +17,6 @@ namespace ProjectEuler
             (int)Utils.Factorial(8),
             (int)Utils.Factorial(9),
         };
-
-        int DigitFactorials(int n)
-        {
-            int sum = 0;
-            while (n != 0)
-            {
-                sum += factorials[n % 10];
-                n /= 10;
-            }
-
-            return sum;
-        }
 
         public string GetAnswer()
         {
@@ -48,5 +32,19 @@ namespace ProjectEuler
 
             return sum.ToString();
         }
+
+        private static int DigitFactorials(int n)
+        {
+            int sum = 0;
+            while (n != 0)
+            {
+                sum += factorials[n % 10];
+                n /= 10;
+            }
+
+            return sum;
+        }
+
+
     }
 }

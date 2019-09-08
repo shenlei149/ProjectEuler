@@ -1,5 +1,5 @@
-﻿using System.Numerics;
-using System.Linq;
+﻿using System.Linq;
+using System.Numerics;
 
 namespace ProjectEuler
 {
