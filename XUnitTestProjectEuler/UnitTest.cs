@@ -99,7 +99,10 @@ namespace XUnitTestProjectEuler
             Assert.Equal("333082500", new S120().GetAnswer());
             Assert.Equal("21417", new S124().GetAnswer());
             Assert.Equal("2906969179", new S125().GetAnswer());
+<<<<<<< HEAD
             // Assert.Equal("608720", new S145().GetAnswer()); // ~250s, got a bad solution on 7 Mar 2014
+=======
+>>>>>>> 215ed2e... Remove S145
         }
     }
 
