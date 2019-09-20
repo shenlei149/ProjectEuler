@@ -1,26 +1,51 @@
-﻿namespace ProjectEuler
+﻿
+
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ProjectEuler
 {
     public class S76 : ISolution
     {
-        private static int count = 0;
-
         public string GetAnswer()
         {
-            CountingSummations(100, 100);
-            return (count - 1).ToString(); // exclude 100
-        }
-
-        private static void CountingSummations(int p, int lastAddend)
-        {
-            if (p == 0)
+            var q = new List<int>();
+            int iq = 0;
+            for (; iq < 10; iq++)
             {
-                count++;
+                q.Add(iq * (iq * 3 - 1) / 2);
+                q.Add(iq * (iq * 3 + 1) / 2);
             }
 
-            for (int i = 1; i <= lastAddend && i <= p; i++)
+            var p = new List<int>() { 1, 1, 2 };
+            for (int ip = 3; ip < 101; ip++)
             {
-                CountingSummations(p - i, i);
+                int k = 0;
+                p.Add(0);
+                for (int j = 2; q[j] <= ip; j++)
+                {
+                    int flag = k & 2;
+                    if (flag == 0)
+                    {
+                        p[ip] = p[ip] + p[ip - q[j]];
+                    }
+                    else
+                    {
+                        p[ip] = p[ip] - p[ip - q[j]];
+                    }
+
+                    k++;
+                }
+
+                if (q.Last() < ip * 1.5)
+                {
+                    q.Add(iq * (iq * 3 - 1) / 2);
+                    q.Add(iq * (iq * 3 + 1) / 2);
+                    iq++;
+                }
             }
+
+            return (p.Last() - 1).ToString();
         }
     }
 }
