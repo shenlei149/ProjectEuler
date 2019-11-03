@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace ProjectEuler
 {
@@ -9,11 +8,11 @@ namespace ProjectEuler
 
         public string GetAnswer()
         {
-            var numberToDivisorSum = new Dictionary<int, int>(MAX);
-            for (int i = 0; i < MAX; i++)
+            var numberToDivisorSum = new List<int>(MAX + 1);
+            for (int i = 0; i <= MAX; i++)
             {
                 // 1 is divisor
-                numberToDivisorSum[i + 1] = 1;
+                numberToDivisorSum.Add(1);
             }
 
             // i is a factor
@@ -31,39 +30,45 @@ namespace ProjectEuler
                 }
             }
 
-            var numberToLength = new Dictionary<int, int>();
+            var numberToLength = new List<int>(MAX + 1) { 0 };
+            int longest = -1;
+            int index = -1;
             for (int i = 1; i <= MAX; i++)
             {
-                int length = GetChainLength(i, numberToDivisorSum);
-                if (length != -1)
+                numberToLength.Add(0);
+                if (numberToDivisorSum[i] != -1)
                 {
+                    int length = GetChainLength(i, numberToDivisorSum);
                     numberToLength[i] = length;
+                    if (length > longest)
+                    {
+                        index = i;
+                        longest = length;
+                    }
                 }
             }
 
-            int longest = -1;
-            foreach (var entry in numberToLength)
-            {
-                if (entry.Value > longest)
-                {
-                    longest = entry.Value;
-                }
-            }
-
-            return numberToLength.Where(pair => pair.Value == longest)
-                .OrderBy(pair => pair.Key).First().Key.ToString();
+            return index.ToString();
         }
 
-        private static int GetChainLength(int number, Dictionary<int, int> numberToDivisorSum)
+        private static int GetChainLength(int number, List<int> numberToDivisorSum)
         {
-            HashSet<int> chain = new HashSet<int>();
+            var chain = new List<int>();
             int cur = number;
             while (true)
             {
                 chain.Add(cur);
                 int next = numberToDivisorSum[cur];
-                if (next > MAX)
+                if (next > MAX || next == -1)
                 {
+                    foreach (var s in chain)
+                    {
+                        if (s > number)
+                        {
+                            numberToDivisorSum[s] = -1;
+                        }
+                    }
+
                     return -1;
                 }
 
@@ -74,6 +79,14 @@ namespace ProjectEuler
 
                 if (next == number)
                 {
+                    foreach (var s in chain)
+                    {
+                        if (s > number)
+                        {
+                            numberToDivisorSum[s] = -1;
+                        }
+                    }
+
                     return chain.Count;
                 }
 
