@@ -4,17 +4,17 @@ using System.Numerics;
 
 namespace ProjectEuler
 {
-    public class S110 : ISolution
+    public class S108 : ISolution
     {
-        private readonly int MAX = 4_000_000;
-        private readonly int[] Primes = new int[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37 };
-        private readonly int[] MaxPower = new int[] { 9, 5, 4, 2, 2, 2, 1, 1, 1, 1, 1, 1 };
+        private readonly int MAX = 1_000;
+        private readonly int[] Primes = new int[] { 2, 3, 5, 7, 11, 13, 17 };
+        private readonly int[] MaxPower = new int[] { 5, 3, 2, 2, 2, 2, 1 };
 
         private BigInteger min = long.MaxValue;
 
         public string GetAnswer()
         {
-            Check(new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 0);
+            Check(new int[] { 0, 0, 0, 0, 0, 0, 0 }, 0);
             return min.ToString();
         }
 
