@@ -70,15 +70,15 @@ namespace ProjectEuler
                 string value = p[0].ToString();
                 if (!int.TryParse(value, out int count))
                 {
-                    switch (value)
+                    count = value switch
                     {
-                        case "T": count = 10; break;
-                        case "J": count = 11; break;
-                        case "Q": count = 12; break;
-                        case "K": count = 13; break;
-                        case "A": count = 14; break;
-                        default: count = 0; break;
-                    }
+                        "T" => 10,
+                        "J" => 11,
+                        "Q" => 12,
+                        "K" => 13,
+                        "A" => 14,
+                        _ => 0,
+                    };
                 }
 
                 return count;
