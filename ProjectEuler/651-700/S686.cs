@@ -30,11 +30,9 @@ namespace ProjectEuler
                     var rem = d - (int)d;
 
                     var leading = Math.Pow(10, rem);
-                    int first = (int)leading;
-                    int second = (int)(leading * 10) - first * 10;
-                    int third = (int)(leading * 100) - first * 100 - second * 10;
+                    int num = (int)(leading * 100);
 
-                    if (first == 1 && second == 2 && third == 3)
+                    if (num == 123)
                     {
                         diff = next;
                         j = newJ;
