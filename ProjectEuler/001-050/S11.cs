@@ -40,7 +40,7 @@ namespace ProjectEuler
 
         static void InitMatrix()
         {
-            string[] numbers = source.Split(new string[] { " ", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] numbers = source.Split(new string[] { " ", "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
             for (int i = 0; i < 20; i++)
             {
                 for (int j = 0; j < 20; j++)

@@ -8,7 +8,7 @@ namespace ProjectEuler
     {
         public string GetAnswer()
         {
-            return pokers1000.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries)
+            return pokers1000.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries)
                 .Count(str =>
                     GetWinner(
                         GetHandPattern(str.Split(' ').Take(5)),
