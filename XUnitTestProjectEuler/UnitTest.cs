@@ -78,6 +78,7 @@ namespace XUnitTestProjectEuler
             Assert.Equal("1818", new S86().GetAnswer());
             Assert.Equal("1097343", new S87().GetAnswer());
             Assert.Equal("743", new S89().GetAnswer());
+            Assert.Equal("1217", new S90().GetAnswer());
             Assert.Equal("14234", new S91().GetAnswer());
             Assert.Equal("8581146", new S92().GetAnswer());
             Assert.Equal("14316", new S95().GetAnswer());
