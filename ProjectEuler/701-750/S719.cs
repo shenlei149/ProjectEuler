@@ -7,8 +7,12 @@ namespace ProjectEuler
 {
     public class S719 : ISolution
     {
-        private Dictionary<int, List<Pattern>> patterns = new Dictionary<int, List<Pattern>>();
-        private Dictionary<string, List<Pattern>> mappings = new Dictionary<string, List<Pattern>>();
+        private readonly long[] Pows = new long[] {1,10,100,1000, 10000,
+            100000, 1000000, 10000000,100000000,1000000000,
+            10000000000,100000000000,1000000000000};
+
+        private readonly Dictionary<int, List<Pattern>> patterns = new Dictionary<int, List<Pattern>>();
+        private readonly Dictionary<string, List<Pattern>> mappings = new Dictionary<string, List<Pattern>>();
 
         public string GetAnswer()
         {
@@ -17,7 +21,7 @@ namespace ProjectEuler
                 patterns[i] = GetAllPatternsByLength(i);
             }
 
-            long END = 1_000_000; // 128088830547982 ~62s
+            long END = 1_000_000;
             long sum = END * END;
 
             // 1, 4, 9 cannot be split into 2 or more numbers
@@ -35,16 +39,19 @@ namespace ProjectEuler
 
         private bool CanBeSplit(long root, long S)
         {
-            int rootLength = (int)Math.Floor(Math.Log10(root) + 1);
+            var patterns = GetPatterns(root, S);
             int sLength = (int)Math.Floor(Math.Log10(S) + 1);
-            var patterns = GetPatterns(rootLength, sLength);
-            string strS = S.ToString();
             foreach (var pattern in patterns)
             {
-                int sum = 0;
+                long sum = 0;
                 foreach (var pair in pattern.Pairs)
                 {
-                    sum += int.Parse(strS.Substring(pair.Item1, pair.Item2));
+                    sum += S / Pows[sLength - pair.Item1 - pair.Item2] % Pows[pair.Item2];
+
+                    if (sum > root)
+                    {
+                        break;
+                    }
                 }
 
                 if (sum == root)
@@ -56,18 +63,27 @@ namespace ProjectEuler
             return false;
         }
 
-        private List<Pattern> GetPatterns(int rootLength, int length)
+        private List<Pattern> GetPatterns(long root, long S)
         {
-            string key = rootLength + "_" + length;
+            int rootLength = (int)Math.Floor(Math.Log10(root) + 1);
+            int sLength = (int)Math.Floor(Math.Log10(S) + 1);
+
+            while (root > 100)
+            {
+                root /= 10;
+            }
+
+            var t = root >= 21;
+            string key = rootLength + "_" + sLength + (t ? "T" : "F");
             if (!mappings.ContainsKey(key))
             {
-                if (rootLength * 2 == length)
+                if (t)
                 {
-                    mappings[key] = patterns[length].Where(p => p.GetMaxLength() == rootLength).ToList();
+                    mappings[key] = patterns[sLength].Where(p => p.GetMaxLength() == rootLength).ToList();
                 }
                 else
                 {
-                    mappings[key] = patterns[length].Where(p => p.GetMaxLength() == rootLength || p.GetMaxLength() == rootLength - 1).ToList();
+                    mappings[key] = patterns[sLength].Where(p => p.GetMaxLength() == rootLength || p.GetMaxLength() == rootLength - 1).ToList();
                 }
             }
 

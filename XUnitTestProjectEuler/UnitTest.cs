@@ -228,4 +228,14 @@ namespace XUnitTestProjectEuler
             Assert.Equal("1517926517777556", new S700().GetAnswer());
         }
     }
+
+    [Collection("Collection #15")]
+    public class UnitTest15
+    {
+        [Fact]
+        public void Test701To750()
+        {
+            Assert.Equal("128088830547982", new S719().GetAnswer());
+        }
+    }
 }
