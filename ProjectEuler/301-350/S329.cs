@@ -21,13 +21,14 @@ namespace ProjectEuler
                 probabilities.AddRange(GetProbabilityAt(i));
             }
 
-            var commonD = probabilities.Select(pair => pair.Item2).Distinct().Max();
+            var commonD = (long)Math.Pow(6, 15);
             long numerator = 0;
             foreach (var pair in probabilities)
             {
                 numerator += pair.Item1 * commonD / pair.Item2;
             }
 
+            commonD *= 500;
             var gcd = Utils.GetGcd(numerator, commonD);
 
             return $"{numerator / gcd}/{commonD / gcd}";
@@ -35,14 +36,17 @@ namespace ProjectEuler
 
         private List<(long, long)> GetProbabilityAt(int i)
         {
-            return GetProbabilityAt(i, 0, 1, 1);
+            var result = new List<(long, long)>();
+            GetProbabilityAt(i, 0, 1, 1, result);
+            return result;
         }
 
-        private List<(long, long)> GetProbabilityAt(int i, int step, long numerator, long denominator)
+        private void GetProbabilityAt(int i, int step, long numerator, long denominator, List<(long, long)> result)
         {
             if (step == croaks.Length)
             {
-                return new List<(long, long)> { (numerator, denominator) };
+                result.Add((numerator, denominator));
+                return;
             }
 
             var (n, d) = GetProbabilityWithCroak(i, croaks[step]);
@@ -53,23 +57,21 @@ namespace ProjectEuler
 
             if (i == 1)
             {
-                return GetProbabilityAt(i + 1, step, numerator, denominator);
+                GetProbabilityAt(i + 1, step, numerator, denominator, result);
+                return;
             }
 
             if (i == 500)
             {
-                return GetProbabilityAt(i - 1, step, numerator, denominator);
+                GetProbabilityAt(i - 1, step, numerator, denominator, result);
+                return;
             }
 
-            var right = GetProbabilityAt(i + 1, step, numerator, denominator * 2);
-            var left = GetProbabilityAt(i - 1, step, numerator, denominator * 2);
-
-            left.AddRange(right);
-
-            return left;
+            GetProbabilityAt(i + 1, step, numerator, denominator * 2, result);
+            GetProbabilityAt(i - 1, step, numerator, denominator * 2, result);
         }
 
-        private (long, long) GetProbabilityWithCroak(int i, char p)
+        private static (long, long) GetProbabilityWithCroak(int i, char p)
         {
             if (p == 'P')
             {
