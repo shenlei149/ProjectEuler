@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectEuler
 {
@@ -18,7 +16,7 @@ namespace ProjectEuler
             var probabilities = new List<(long, long)>();
             for (int i = 1; i <= 500; i++)
             {
-                probabilities.AddRange(GetProbabilityAt(i));
+                GetProbabilityAt(i, probabilities);
             }
 
             var commonD = (long)Math.Pow(6, 15);
@@ -34,26 +32,24 @@ namespace ProjectEuler
             return $"{numerator / gcd}/{commonD / gcd}";
         }
 
-        private List<(long, long)> GetProbabilityAt(int i)
+        private void GetProbabilityAt(int i, List<(long, long)> p)
         {
-            var result = new List<(long, long)>();
-            GetProbabilityAt(i, 0, 1, 1, result);
-            return result;
+            GetProbabilityAt(i, 0, 1, 1, p);
         }
 
         private void GetProbabilityAt(int i, int step, long numerator, long denominator, List<(long, long)> result)
         {
-            if (step == croaks.Length)
-            {
-                result.Add((numerator, denominator));
-                return;
-            }
-
             var (n, d) = GetProbabilityWithCroak(i, croaks[step]);
             numerator *= n;
             denominator *= d;
 
             step++;
+
+            if (step == croaks.Length)
+            {
+                result.Add((numerator, denominator));
+                return;
+            }
 
             if (i == 1)
             {
