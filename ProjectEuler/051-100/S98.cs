@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace ProjectEuler
 {
@@ -59,18 +60,37 @@ namespace ProjectEuler
 
         private int GetSquare(List<string> a, string candidate, List<int> squares)
         {
-            var map = new Dictionary<char, int>();
+            var map = new Dictionary<char, char>();
             for (int i = 0; i < a[0].Length; i++)
             {
                 if (map.ContainsKey(a[0][i]))
                 {
-                    if (map[a[0][i]] != candidate[i] - '0')
+                    if (map[a[0][i]] != candidate[i])
                     {
                         return -1;
                     }
                 }
 
-                map[a[0][i]] = candidate[i] - '0';
+                map[a[0][i]] = candidate[i];
+            }
+
+            if (map.Values.Distinct().Count() != map.Count)
+            {
+                return -1;
+            }
+
+            var other = a[1];
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < other.Length; i++)
+            {
+                sb.Append(map[other[i]]);
+            }
+
+            int first = int.Parse(candidate);
+            int second = int.Parse(sb.ToString());
+            if (squares.BinarySearch(second) >= 0)
+            {
+                return Math.Max(first, second);
             }
 
             return -1;
