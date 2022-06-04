@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace ProjectEuler
 {
     public class S116 : ISolution
