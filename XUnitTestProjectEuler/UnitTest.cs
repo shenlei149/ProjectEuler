@@ -248,6 +248,7 @@ namespace XUnitTestProjectEuler
         public void Test701To750()
         {
             Assert.Equal("128088830547982", new S719().GetAnswer());
+            Assert.Equal("94586478", new S745().GetAnswer());
         }
     }
 
