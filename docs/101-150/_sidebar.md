@@ -1,3 +1,4 @@
 - [Home](/)
 - [101 - 150](/101-150/) 
+  - [118 pandigital prime sets](/101-150/118-pandigital-prime-sets.md)
   - [121 disc game prize fund](/101-150/121-disc-game-prize-fund.md)

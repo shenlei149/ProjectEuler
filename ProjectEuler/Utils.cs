@@ -189,14 +189,44 @@ namespace ProjectEuler
             return count;
         }
 
+        public static bool IsPandigital(IEnumerable<int> numbers)
+        {
+            int[] digits = new int[10];
+
+            foreach (var n in numbers)
+            {
+                var y = n;
+                while (y != 0)
+                {
+                    digits[y % 10]++;
+                    y /= 10;
+                }
+            }
+
+            return digits.All(i => i <= 1);
+        }
+
+        public static bool IsPandigital(int y)
+        {
+            int[] digits = new int[10];
+
+            while (y != 0)
+            {
+                digits[y % 10]++;
+                y /= 10;
+            }
+
+            return digits.All(i => i == 0 || i == 1);
+        }
+
         public static bool IsPandigital(string s, bool canContainsZero)
         {
-            if (!canContainsZero && s.Contains("0"))
+            if (!canContainsZero && s.Contains('0'))
             {
                 return false;
             }
 
-            return s.Distinct().Count() == s.Count();
+            return s.Distinct().Count() == s.Length;
         }
 
         // am + bn = d
@@ -291,6 +321,31 @@ namespace ProjectEuler
             for (int i = 0; i < s.Length / 2; i++)
             {
                 if (s[i] != s[s.Length - i - 1])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool IsPrime(long number, long[] primes)
+        {
+            if (number <= 1)
+            { return false; }
+
+            if (number == 2)
+            { return true; }
+
+            long max = (long)Math.Ceiling(Math.Sqrt(number));
+            foreach (long n in primes)
+            {
+                if (n > max)
+                {
+                    break;
+                }
+
+                if (number % n == 0)
                 {
                     return false;
                 }
