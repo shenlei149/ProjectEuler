@@ -62,7 +62,7 @@ namespace ProjectEuler
                 for (int j = i + 1; j < P.Length; j++)
                 {
                     var other = P[j];
-                    if ((other.X - p.X) > distance) // TODO no abs
+                    if ((other.X - p.X) > distance)
                     { break; }
 
                     var d = p.Distance(other);
