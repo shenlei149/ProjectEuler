@@ -442,5 +442,20 @@ namespace ProjectEuler
 
             return digits.All(i => i == 0);
         }
+
+        public static long Reverse(long x)
+        {
+            long re = 0;
+            while (x != 0)
+            {
+                var d = x % 10;
+                x /= 10;
+
+                re *= 10;
+                re += d;
+            }
+
+            return re;
+        }
     }
 }
