@@ -271,6 +271,7 @@ namespace XUnitTestProjectEuler
         [Fact]
         public void Test801To850()
         {
+            Assert.Equal("3807504276997394", new S808().GetAnswer());
             Assert.Equal("20.880613018", new S816().GetAnswer());
         }
     }

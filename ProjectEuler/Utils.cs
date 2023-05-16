@@ -296,6 +296,40 @@ namespace ProjectEuler
             return primes;
         }
 
+        public static List<long> GenPrimes2(long end)
+        {
+            var results = new List<long>();
+            var primes = new bool[end];
+            for (long i = 0; i < primes.Length; i++)
+            {
+                primes[i] = true;
+            }
+
+            primes[0] = false;
+            primes[1] = false;
+            for (long i = 0; i <= (long)Math.Sqrt(primes.Length) + 1; i++)
+            {
+                if (primes[i])
+                {
+                    long p = i;
+                    for (long j = 2; j * p < end; j++)
+                    {
+                        primes[j * p] = false;
+                    }
+
+                    results.Add(i);
+                }
+            }
+
+            for (long i = (long)Math.Sqrt(primes.Length) + 2; i < end; i++)
+            {
+                if (primes[i])
+                { results.Add(i); }
+            }
+
+            return results;
+        }
+
         public static long Factorial(long i)
         {
             if (i < 0)
@@ -441,6 +475,21 @@ namespace ProjectEuler
             }
 
             return digits.All(i => i == 0);
+        }
+
+        public static long Reverse(long x)
+        {
+            long re = 0;
+            while (x != 0)
+            {
+                var d = x % 10;
+                x /= 10;
+
+                re *= 10;
+                re += d;
+            }
+
+            return re;
         }
     }
 }
