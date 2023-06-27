@@ -1,0 +1,3 @@
+- [Home](/)
+- [701 - 750](/701-750/)
+  - [743 window into a matrix](/701-750/743-window-into-a-matrix.md)
