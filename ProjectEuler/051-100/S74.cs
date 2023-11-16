@@ -5,11 +5,12 @@ namespace ProjectEuler
 {
     public class S74 : ISolution
     {
-        private readonly int MAX = 1000000;
+        private static readonly int MAX = 1000000;
+        private static readonly List<int> factorials = new() { 1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880 };
 
         public string GetAnswer()
         {
-            Dictionary<int, int> nexts = new Dictionary<int, int>();
+            var nexts = new Dictionary<int, int>();
             for (int i = 1; i < MAX; i++)
             {
                 int key = i;
@@ -24,10 +25,10 @@ namespace ProjectEuler
                 }
             }
 
-            Dictionary<int, int> length = new Dictionary<int, int>();
+            var length = new Dictionary<int, int>();
             for (int i = 3; i < MAX; i++)
             {
-                HashSet<int> numbers = new HashSet<int>();
+                var numbers = new HashSet<int>();
                 int cur = i;
                 while (!numbers.Contains(cur))
                 {
@@ -56,13 +57,7 @@ namespace ProjectEuler
             while (i != 0)
             {
                 int m = i % 10;
-                int product = 1;
-                for (int j = 2; j <= m; j++)
-                {
-                    product *= j;
-                }
-
-                sum += product;
+                sum += factorials[m];
 
                 i /= 10;
             }

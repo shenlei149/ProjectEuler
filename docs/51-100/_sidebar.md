@@ -1,3 +1,4 @@
 - [Home](/)
 - [51-100](/51-100/)
+  - [74 Digit Factorial Chains](/51-100/74-Digit-Factorial-Chains.md)
   - [96 Su Doku](/51-100/96-Su-Doku.md)
