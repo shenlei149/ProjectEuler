@@ -17,7 +17,7 @@ namespace ProjectEuler
             return a.ToString();
         }
 
-        int GetCountByA(int a)
+        static int GetCountByA(int a)
         {
             int count = 0;
             for (int bc = 2; bc <= 2 * a; bc++)

@@ -1,4 +1,5 @@
 - [Home](/)
 - [51-100](/51-100/)
   - [74 Digit Factorial Chains](/51-100/74-Digit-Factorial-Chains.md)
+  - [86 Cuboid Route](/51-100/86-Cuboid-Route.md)
   - [96 Su Doku](/51-100/96-Su-Doku.md)
