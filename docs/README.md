@@ -15,3 +15,16 @@ The motivation for starting Project Euler, and its continuation, is to provide a
 之前是在个人[博客](https://guozi149.me/blog/)记录解题思路。现在想法是一点点的迁移过来。目的是
 1. 将我这几年攒的东西文档化，方便查找。
 2. 把之前的文章和代码过一遍，优化一下。
+
+# 排名
+## 2023
+2024 年 12 月 15 日，排名有所上升，在前 0.5 %，过去几年平均每年做了 9 个题目。
+
+![](images/Percentage2023.PNG)
+
+![](images/Rank2023.PNG)
+
+## 2018
+2018 年 5 月 10 日，发现拿到了 One Percenter 的成就，说明进入了所有用户的前百分之一。
+
+![](images/Rank2018.PNG)
