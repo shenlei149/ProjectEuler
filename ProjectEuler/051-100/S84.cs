@@ -15,19 +15,23 @@ namespace ProjectEuler
         private static readonly int E3 = 24;
         private static readonly int H2 = 39;
         private static readonly int R1 = 5;
-        private static readonly int[] Community = new int[] { 2, 17, 33 };
+        private static readonly int[] Community = [2, 17, 33];
 
         // Next corresponds to Chance
-        private static readonly int[] Chance = new int[] { 7, 22, 36 };
-        private static readonly int[] NextRailway = new int[] { 15, 25, 5 };
-        private static readonly int[] NextUtility = new int[] { 12, 28, 12 };
+        private static readonly int[] Chance = [7, 22, 36];
+        private static readonly int[] NextRailway = [15, 25, 5];
+        private static readonly int[] NextUtility = [12, 28, 12];
 
         public string GetAnswer()
         {
+            // record the counts
             int[] board = new int[40];
-            Random random = new Random();
+
+            Random random = new();
             int doubles = 0;
             int current = 0;
+
+            // position of special card
             int chanceIndex = 0;
             int communityIndex = 0;
 
@@ -36,6 +40,7 @@ namespace ProjectEuler
                 int dice1 = random.Next(1, 5);
                 int dice2 = random.Next(1, 5);
 
+                // handle scenario: double
                 doubles = (dice1 == dice2) ? doubles + 1 : 0;
                 if (doubles > 2)
                 {
@@ -44,15 +49,17 @@ namespace ProjectEuler
                 }
                 else
                 {
-                    // move
+                    // move forward
                     current = (current + dice1 + dice2) % 40;
 
                     // handle Chance
                     if (current == Chance[0] || current == Chance[1] || current == Chance[2])
                     {
+                        // use special card
                         chanceIndex++;
                         chanceIndex %= 16;
 
+                        // go to Railway or Utility
                         int index = 0;
                         if (current == Chance[1])
                         {

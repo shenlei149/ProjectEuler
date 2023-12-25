@@ -5,5 +5,6 @@
   - [80 Square Root Digital Expansion](/51-100/80-Square-Root-Digital-Expansion.md)
   - [82 Path Sum: Three Ways](/51-100/82-Path-Sum-Three-Ways.md)
   - [83 Path Sum: Four Ways](/51-100/83-Path-Sum-Four-Ways.md)
+  - [84 Monopoly Odds](/51-100/84-Monopoly-Odds.md)
   - [86 Cuboid Route](/51-100/86-Cuboid-Route.md)
   - [96 Su Doku](/51-100/96-Su-Doku.md)
