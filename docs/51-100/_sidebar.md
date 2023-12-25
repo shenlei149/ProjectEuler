@@ -3,5 +3,6 @@
   - [64 Odd Period Square Roots](/51-100/64-Odd-Period-Square-Roots.md)
   - [74 Digit Factorial Chains](/51-100/74-Digit-Factorial-Chains.md)
   - [80 Square Root Digital Expansion](/51-100/80-Square-Root-Digital-Expansion.md)
+  - [82 Path Sum: Three Ways](/51-100/82-Path-Sum-Three-Ways.md)
   - [86 Cuboid Route](/51-100/86-Cuboid-Route.md)
   - [96 Su Doku](/51-100/96-Su-Doku.md)
