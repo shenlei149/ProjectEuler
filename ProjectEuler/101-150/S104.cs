@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Numerics;
 
 namespace ProjectEuler
@@ -7,8 +7,8 @@ namespace ProjectEuler
     {
         public string GetAnswer()
         {
-            int[] fn_2 = new int[] { 1 };
-            int[] fn_1 = new int[] { 1 };
+            int[] fn_2 = [1];
+            int[] fn_1 = [1];
             BigInteger f1 = 1;
             BigInteger f2 = 1;
             int i = 3;
