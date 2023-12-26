@@ -1,5 +1,5 @@
 - [Home](/)
 - [101 - 150](/101-150/) 
-  - [107 minimal network](/101-150/107-minimal-network.md)
-  - [118 pandigital prime sets](/101-150/118-pandigital-prime-sets.md)
-  - [121 disc game prize fund](/101-150/121-disc-game-prize-fund.md)
+  - [107 Minimal Network](/101-150/107-Minimal-Network.md)
+  - [118 Pandigital Prime Sets](/101-150/118-Pandigital-Prime-Sets.md)
+  - [121 Disc Game Prize Fund](/101-150/121-Disc-Game-Prize-Fund.md)
