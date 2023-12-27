@@ -4,6 +4,7 @@
   - [104 Pandigital Fibonacci Ends](/101-150/104-Pandigital-Fibonacci-Ends.md)
   - [107 Minimal Network](/101-150/107-Minimal-Network.md)
   - [110 Diophantine Reciprocals](/101-150/110-Diophantine-Reciprocals.md)
+  - [113 Non-bouncy Numbers](/101-150/113-Non-bouncy-Numbers.md)
   - [115 Counting Block Combinations](/101-150/115-Counting-Block-Combinations.md)
   - [116 Red, Green or Blue Tiles](/101-150/116-Red-Green-or-Blue-Tiles.md)
   - [117 Red, Green, and Blue Tiles](/101-150/117-Red-Green-and-Blue-Tiles.md)
