@@ -4,5 +4,7 @@
   - [104 Pandigital Fibonacci Ends](/101-150/104-Pandigital-Fibonacci-Ends.md)
   - [107 Minimal Network](/101-150/107-Minimal-Network.md)
   - [110 Diophantine Reciprocals](/101-150/110-Diophantine-Reciprocals.md)
+  - [116 Red, Green or Blue Tiles](/101-150/116-Red-Green-or-Blue-Tiles.md)
+  - [117 Red, Green, and Blue Tiles](/101-150/117-Red-Green-and-Blue-Tiles.md)
   - [118 Pandigital Prime Sets](/101-150/118-Pandigital-Prime-Sets.md)
   - [121 Disc Game Prize Fund](/101-150/121-Disc-Game-Prize-Fund.md)
