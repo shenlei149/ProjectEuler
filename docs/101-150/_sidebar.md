@@ -9,4 +9,5 @@
   - [116 Red, Green or Blue Tiles](/101-150/116-Red-Green-or-Blue-Tiles.md)
   - [117 Red, Green, and Blue Tiles](/101-150/117-Red-Green-and-Blue-Tiles.md)
   - [118 Pandigital Prime Sets](/101-150/118-Pandigital-Prime-Sets.md)
+  - [119 Digit Power Sum](/101-150/119-Digit-Power-Sum.md)
   - [121 Disc Game Prize Fund](/101-150/121-Disc-Game-Prize-Fund.md)
