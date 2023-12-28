@@ -11,3 +11,4 @@
   - [118 Pandigital Prime Sets](/101-150/118-Pandigital-Prime-Sets.md)
   - [119 Digit Power Sum](/101-150/119-Digit-Power-Sum.md)
   - [121 Disc Game Prize Fund](/101-150/121-Disc-Game-Prize-Fund.md)
+  - [123 Prime Square Remainders](/101-150/123-Prime-Square-Remainders.md)
