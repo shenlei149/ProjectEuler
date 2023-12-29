@@ -14,3 +14,4 @@
   - [123 Prime Square Remainders](/101-150/123-Prime-Square-Remainders.md)
   - [124 Ordered Radicals](/101-150/124-Ordered-Radicals.md)
   - [125 Palindromic Sums](/101-150/125-Palindromic-Sums.md)
+  - [145 Reversible Numbers](/101-150/145-Reversible-Numbers.md)
