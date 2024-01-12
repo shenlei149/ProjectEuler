@@ -11,7 +11,7 @@ Squarefree 的意思是不能被任何质数的平方整除。前八排的数字
 求帕斯卡三角前 51 排不重复的 Squarefree 的数之和。
 
 我们先来估计下最大的数是多少，然后考虑用什么类型表示，第五十一行其实是 $n=50$，那么最大的是数
-$$\begin{pmatrix}n\\k\end{pmatrix}=C\begin{pmatrix}50\\25\end{pmatrix}=\frac{50!}{25!25!}=126,410,606,437,752$$
+$$\begin{pmatrix}n\\k\end{pmatrix}=\begin{pmatrix}50\\25\end{pmatrix}=\frac{50!}{25!25!}=126,410,606,437,752$$
 `long` 就足够了。
 
 首先我们计算前 51 排的数。
