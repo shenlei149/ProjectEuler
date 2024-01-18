@@ -1,3 +1,4 @@
 - [Home](/)
 - [201 - 250](/201-250/)
   - [203 Squarefree Binomial Coefficients](/201-250/203-Squarefree-Binomial-Coefficients.md)
+  - [243 Resilience](/201-250/243-Resilience.md)
