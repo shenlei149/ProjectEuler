@@ -4,20 +4,17 @@
     {
         public string GetAnswer()
         {
-            int count = 0;
-            long max = 1 << 30;
-            for (long n = 1; n <= max; n++)
+            int[] zero_count = new int[30];
+            int[] one_count = new int[30];
+            zero_count[0] = 1;
+            one_count[0] = 1;
+            for (int i = 1; i < 30; i++)
             {
-                long n1 = n;
-                long n2 = n << 1;
-                long n3 = n1 + n2;
-                if ((n1 ^ n2 ^ n3) == 0)
-                {
-                    count++;
-                }
+                zero_count[i] = zero_count[i - 1] + one_count[i - 1];
+                one_count[i] = zero_count[i - 1];
             }
 
-            return count.ToString();
+            return (zero_count[29] + one_count[29]).ToString();
         }
     }
 }
