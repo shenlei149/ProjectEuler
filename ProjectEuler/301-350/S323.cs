@@ -8,10 +8,10 @@ namespace ProjectEuler
     {
         public string GetAnswer()
         {
-            List<Probability> probabilities = new List<Probability>
-            {
+            List<Probability> probabilities =
+            [
                 new Probability(0, 1)
-            };
+            ];
 
             BigInteger twoPow32 = BigInteger.Pow(2, 32);
             for (int i = 1; ; i++)

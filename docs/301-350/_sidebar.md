@@ -2,3 +2,4 @@
 - [301 - 350](/301-350/)
   - [301 Nim](/301-350/301-Nim.md)
   - [315 Digital Root Clocks](/301-350/315-Digital-Root-Clocks.md)
+  - [323 Bitwise-OR Operations on Random Integers](/301-350/323-Bitwise-OR-Operations-on-Random-Integers.md)
