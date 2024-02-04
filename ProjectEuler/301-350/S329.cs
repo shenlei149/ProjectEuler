@@ -32,12 +32,12 @@ namespace ProjectEuler
             return $"{numerator / gcd}/{commonD / gcd}";
         }
 
-        private void GetProbabilityAt(int i, List<(long, long)> p)
+        private static void GetProbabilityAt(int i, List<(long, long)> p)
         {
             GetProbabilityAt(i, 0, 1, 1, p);
         }
 
-        private void GetProbabilityAt(int i, int step, long numerator, long denominator, List<(long, long)> result)
+        private static void GetProbabilityAt(int i, int step, long numerator, long denominator, List<(long, long)> result)
         {
             var (n, d) = GetProbabilityWithCroak(i, croaks[step]);
             numerator *= n;
