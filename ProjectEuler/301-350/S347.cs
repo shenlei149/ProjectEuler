@@ -10,8 +10,7 @@ namespace ProjectEuler
 
         public string GetAnswer()
         {
-            var Ms = new List<long>();
-
+            long sum = 0;
             var primes = Utils.GenPrimes(MAX / 2);
             for (int i = 0; ; i++)
             {
@@ -36,7 +35,7 @@ namespace ProjectEuler
                     long q = primes[j];
                     if (p * q < MAX)
                     {
-                        Ms.Add(GetM(p, q));
+                        sum += GetM(p, q);
                     }
                     else
                     {
@@ -45,7 +44,7 @@ namespace ProjectEuler
                 }
             }
 
-            return Ms.Sum().ToString(); ;
+            return sum.ToString(); ;
         }
 
         private static long GetM(long p, long q)

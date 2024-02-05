@@ -6,3 +6,4 @@
   - [329 Prime Frog](/301-350/329-Prime-Frog.md)
   - [345 Matrix Sum](/301-350/345-Matrix-Sum.md)
   - [346 Strong Repunits](/301-350/346-Strong-Repunits.md)
+  - [347 Largest Integer Divisible by Two Primes](/301-350/347-Largest-Integer-Divisible-by-Two-Primes.md)
