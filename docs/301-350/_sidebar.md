@@ -4,3 +4,4 @@
   - [315 Digital Root Clocks](/301-350/315-Digital-Root-Clocks.md)
   - [323 Bitwise-OR Operations on Random Integers](/301-350/323-Bitwise-OR-Operations-on-Random-Integers.md)
   - [329 Prime Frog](/301-350/329-Prime-Frog.md)
+  - [345 Matrix Sum](/301-350/345-Matrix-Sum.md)
