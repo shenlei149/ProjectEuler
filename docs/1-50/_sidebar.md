@@ -1,3 +1,0 @@
-- [Home](/)
-- [1-50](/1-50/)
-  - [26 reciprocal cycles](/1-50/26-reciprocal-cycles.md)
