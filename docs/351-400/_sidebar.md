@@ -1,0 +1,3 @@
+- [Home](/)
+- [351 - 400](/351-400/)
+  - [381 (prime - k) Factorial](/351-400/381-Prime-Factorial.md)
