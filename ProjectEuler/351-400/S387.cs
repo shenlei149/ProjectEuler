@@ -5,17 +5,17 @@ namespace ProjectEuler
 {
     public class S387 : ISolution
     {
-        private static readonly long[] Digits = new long[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
-        private static readonly long[] PrimesLastDigits = new long[] { 1, 3, 7, 9 };
+        private static readonly long[] Digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+        private static readonly long[] PrimesLastDigits = [1, 3, 7, 9];
 
         public string GetAnswer()
         {
             var truncatableNumbers = new List<long>();
 
-            List<long> last = new List<long>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            List<long> last = [1, 2, 3, 4, 5, 6, 7, 8, 9];
             for (int i = 0; i < 12; i++)
             {
-                List<long> cur = new List<long>();
+                List<long> cur = [];
                 foreach (long l in last)
                 {
                     foreach (long lastDigit in Digits)

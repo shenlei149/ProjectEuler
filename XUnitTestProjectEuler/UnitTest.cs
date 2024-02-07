@@ -180,7 +180,7 @@ namespace XUnitTestProjectEuler
         [Fact]
         public void Test401To450()
         {
-            Assert.Equal("98792821", new S429().GetAnswer()); // ~18s
+            Assert.Equal("98792821", new S429().GetAnswer()); // ~3s
         }
     }
 
