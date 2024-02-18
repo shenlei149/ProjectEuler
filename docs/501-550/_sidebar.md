@@ -1,0 +1,3 @@
+- [Home](/)
+- [501 - 550](/501-550/)
+  - [504 Square on the Inside](/501-550/504-Square-on-the-Inside.md)

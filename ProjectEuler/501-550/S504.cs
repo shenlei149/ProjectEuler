@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace ProjectEuler
 {
@@ -10,8 +9,6 @@ namespace ProjectEuler
 
         public string GetAnswer()
         {
-            var squares = Enumerable.Range(1, 140).Select(n => n * n).ToList();
-
             for (int i = 1; i <= M; i++)
             {
                 for (int j = 1; j <= i; j++)
@@ -30,7 +27,7 @@ namespace ProjectEuler
                 {
                     for (int b = 1; b <= M; b++)
                     {
-                        for (int a = 1; a <= M; a++)
+                        for (int a = 1; a < b; a++)
                         {
                             int numberOfVector = GetNumberOfVector(a, b, c, d);
                             int sqrt = (int)Math.Sqrt(numberOfVector);
@@ -38,6 +35,24 @@ namespace ProjectEuler
                             {
                                 count++;
                             }
+                        }
+                    }
+                }
+            }
+
+            count *= 2;
+
+            for (int d = 1; d <= M; d++)
+            {
+                for (int c = 1; c <= M; c++)
+                {
+                    for (int b = 1; b <= M; b++)
+                    {
+                        int numberOfVector = GetNumberOfVector(b, b, c, d);
+                        int sqrt = (int)Math.Sqrt(numberOfVector);
+                        if (sqrt * sqrt == numberOfVector)
+                        {
+                            count++;
                         }
                     }
                 }
