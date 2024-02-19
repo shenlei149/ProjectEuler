@@ -203,7 +203,7 @@ namespace XUnitTestProjectEuler
         public void Test501To550()
         {
             Assert.Equal("694687", new S504().GetAnswer()); // ~4.2s
-            Assert.Equal("939087315", new S516().GetAnswer()); // ~2.8s
+            Assert.Equal("939087315", new S516().GetAnswer());
             Assert.Equal("100315739184392", new S518().GetAnswer()); // 30s, to be optimized
             Assert.Equal("476001479068717", new S549().GetAnswer()); // 19s
         }

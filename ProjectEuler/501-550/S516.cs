@@ -35,50 +35,7 @@ namespace ProjectEuler
                 .Where(p => p > 5)
                 .ToArray();
 
-            List<List<List<long>>> tiers = new List<List<List<long>>>();
-            var firstTier = candidates.Select(p => new List<long>() { p }).ToList();
-            tiers.Add(firstTier);
-
-            while (tiers.Last().Count != 0)
-            {
-                var lastTier = tiers.Last();
-                var currentTier = new List<List<long>>();
-                tiers.Add(currentTier);
-
-                foreach (var combination in lastTier)
-                {
-                    double product = combination.Aggregate((total, next) => total * next);
-
-                    int index = Array.BinarySearch(candidates, combination.Last());
-                    for (int i = index + 1; i < candidates.Length; i++)
-                    {
-                        if (product * candidates[i] <= max)
-                        {
-                            currentTier.Add(new List<long>(combination)
-                            {
-                                candidates[i]
-                            });
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                }
-            }
-
-            var factors = new List<long>();
-            foreach (var tier in tiers)
-            {
-                foreach (var combination in tier)
-                {
-                    factors.Add(combination.Aggregate((total, next) => total * next));
-                }
-            }
-
-            factors.Sort();
-
-            foreach (var factor in factors)
+            foreach (var factor in candidates)
             {
                 foreach (var smooth in smooths)
                 {
@@ -91,6 +48,46 @@ namespace ProjectEuler
                         break;
                     }
                 }
+            }
+
+            var curTier = candidates.Select(p => new Tuple<long, long>(p, p)).ToList();
+
+            while (curTier.Count != 0)
+            {
+                var nextTier = new List<Tuple<long, long>>();
+
+                foreach (var combination in curTier)
+                {
+                    double product = combination.Item2;
+
+                    int index = Array.BinarySearch(candidates, combination.Item1);
+                    for (int i = index + 1; i < candidates.Length; i++)
+                    {
+                        if (product * candidates[i] <= max)
+                        {
+                            long factor = (long)product * candidates[i];
+                            nextTier.Add(new Tuple<long, long>(candidates[i], factor));
+
+                            foreach (var smooth in smooths)
+                            {
+                                if ((double)smooth * factor <= max)
+                                {
+                                    sum += smooth * factor;
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+
+                curTier = nextTier;
             }
 
             sum += smooths.Sum();
