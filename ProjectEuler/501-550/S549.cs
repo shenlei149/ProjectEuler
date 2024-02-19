@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace ProjectEuler
@@ -12,12 +11,7 @@ namespace ProjectEuler
         {
             var originPrimes = Utils.GenPrimes(N + 1);
             var primes = originPrimes.Where(l => l != 0).ToArray();
-
-            var result = new long[N + 1];
-            foreach (var p in primes)
-            {
-                result[p] = p;
-            }
+            var result = (long[])originPrimes.Clone();
 
             for (int index = 0; primes[index] < N / 2; index++)
             {
@@ -102,7 +96,7 @@ namespace ProjectEuler
             {
                 if (result[i] == 0)
                 {
-                    var maps = Utils.Factorize(i, originPrimes);
+                    var maps = Utils.TrialDivisioFactor(i, originPrimes);
                     long m = long.MinValue;
                     foreach (var map in maps)
                     {
@@ -120,19 +114,19 @@ namespace ProjectEuler
             return result.Sum().ToString();
         }
 
-        private static long GetMaxMByPrime(KeyValuePair<long, int> map)
+        private static long GetMaxMByPrime(Tuple<long, int> map)
         {
             long result = 0;
-            long count = map.Value;
+            long count = map.Item2;
             while (count > 0)
             {
-                result += map.Key;
+                result += map.Item1;
                 long cur = result;
                 while (cur > 0)
                 {
-                    if (cur % map.Key == 0)
+                    if (cur % map.Item1 == 0)
                     {
-                        cur /= map.Key;
+                        cur /= map.Item1;
                         count--;
                     }
                     else
