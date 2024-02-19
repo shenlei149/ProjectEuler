@@ -14,11 +14,11 @@ namespace ProjectEuler
                 if (primes[i] != 0)
                 {
                     var a = primes[i] + 1;
-                    var factors = Utils.Factorize(a, primes);
+                    var factors = Utils.TrialDivisioFactor(a, primes);
                     var step = 1;
                     foreach (var f in factors)
                     {
-                        step *= (int)Math.Pow(f.Key, (f.Value + 1) / 2);
+                        step *= (int)Math.Pow(f.Item1, (f.Item2 + 1) / 2);
                     }
                     for (long b = a + step; b < end; b += step)
                     {

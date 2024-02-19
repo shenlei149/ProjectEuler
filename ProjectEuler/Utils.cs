@@ -97,9 +97,47 @@ namespace ProjectEuler
             return a / gcd * b;
         }
 
+        public static List<Tuple<long, int>> TrialDivisioFactor(long n, long[] primes)
+        {
+            var results = new List<Tuple<long, int>>();
+            int index = 0;
+            while (true)
+            {
+                if (primes[index] != 0)
+                {
+                    if (primes[n] != 0)
+                    {
+                        results.Add(new Tuple<long, int>(n, 1));
+                        break;
+                    }
+
+                    int count = 0;
+                    while (n % primes[index] == 0)
+                    {
+                        count++;
+                        n /= primes[index];
+                    }
+
+                    if (count != 0)
+                    {
+                        results.Add(new Tuple<long, int>(primes[index], count));
+                    }
+
+                    if (n == 1)
+                    {
+                        break;
+                    }
+                }
+
+                index++;
+            }
+
+            return results;
+        }
+
         public static Dictionary<long, int> Factorize(long n, long[] primes)
         {
-            List<long> factors = new List<long>();
+            List<long> factors = [];
             Factorize(n, primes, factors);
 
             var maps = new Dictionary<long, int>();
@@ -296,6 +334,11 @@ namespace ProjectEuler
             return primes;
         }
 
+        /// <summary>
+        /// no zero
+        /// </summary>
+        /// <param name="end"></param>
+        /// <returns></returns>
         public static List<long> GenPrimes2(long end)
         {
             var results = new List<long>();
