@@ -3,6 +3,7 @@
   - [51 Prime Digit Replacements](/051-100/51-Prime-Digit-Replacements.md)
   - [61 Cyclical Figurate Numbers](/051-100/61-Cyclical-Figurate-Numbers.md)
   - [64 Odd Period Square Roots](/051-100/64-Odd-Period-Square-Roots.md)
+  - [68 Magic 5-gon Ring](/051-100/68-Magic-5-gon-Ring.md)
   - [74 Digit Factorial Chains](/051-100/74-Digit-Factorial-Chains.md)
   - [80 Square Root Digital Expansion](/051-100/80-Square-Root-Digital-Expansion.md)
   - [82 Path Sum: Three Ways](/051-100/82-Path-Sum-Three-Ways.md)

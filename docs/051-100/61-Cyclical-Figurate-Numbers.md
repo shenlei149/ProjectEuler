@@ -1,4 +1,4 @@
-[题目](https://projecteuler.net/problem=61 "Problem 61 - Project Euler")如下：
+[Problem 61](https://projecteuler.net/problem=61 "Problem 61 - Project Euler")
 
 三角形数，四角形数，五角形数，六角形数，七角形数和八角形数都是定形数，他们分别由以下公式产生：
 
