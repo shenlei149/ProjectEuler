@@ -1,5 +1,6 @@
 - [Home](/)
 - [051-100](/051-100/)
+  - [51 Prime Digit Replacements](/051-100/51-Prime-Digit-Replacements.md)
   - [64 Odd Period Square Roots](/051-100/64-Odd-Period-Square-Roots.md)
   - [74 Digit Factorial Chains](/051-100/74-Digit-Factorial-Chains.md)
   - [80 Square Root Digital Expansion](/051-100/80-Square-Root-Digital-Expansion.md)

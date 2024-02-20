@@ -5,15 +5,15 @@ namespace ProjectEuler
 {
     public class S51 : ISolution
     {
-        private static readonly string[] patterns = new string[] { "110001", "101001", "100101",
-            "100011", "011001", "010101", "010011", "001101", "001011", "000111" };
+        private static readonly string[] patterns = [ "110001", "101001", "100101",
+            "100011", "011001", "010101", "010011", "001101", "001011", "000111" ];
 
         public string GetAnswer()
         {
             var groups = new List<List<int>>();
             for (int i = 0; i < patterns.Length; i++)
             {
-                groups.Add(new List<int>());
+                groups.Add([]);
             }
 
             var primes = Utils.GenPrimes(1000000).Where(l => l > 100000).Select(l => (int)l).ToArray();
@@ -56,7 +56,7 @@ namespace ProjectEuler
 
         private static List<List<int>> HandleGroup(List<int> primes, string pattern)
         {
-            Dictionary<int, List<int>> subGroups = new Dictionary<int, List<int>>();
+            Dictionary<int, List<int>> subGroups = [];
             for (int i = 0; i < primes.Count; i++)
             {
                 int p = primes[i];
@@ -78,7 +78,7 @@ namespace ProjectEuler
                 }
                 else
                 {
-                    subGroups[key] = new List<int> { primes[i] };
+                    subGroups[key] = [primes[i]];
                 }
             }
 
