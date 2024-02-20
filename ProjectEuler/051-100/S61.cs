@@ -34,7 +34,7 @@ namespace ProjectEuler
         {
             Initialize(out List<int> P3, out List<int> P4, out List<int> P5, out List<int> P6, out List<int> P7, out List<int> P8);
 
-            List<OrderedNumber> cur = new List<OrderedNumber>();
+            List<OrderedNumber> cur = [];
             foreach (var i in P3)
             {
                 cur.Add(new OrderedNumber(i));
@@ -42,7 +42,7 @@ namespace ProjectEuler
 
             for (int i = 0; i < 5; i++)
             {
-                List<OrderedNumber> next = new List<OrderedNumber>();
+                List<OrderedNumber> next = [];
 
                 foreach (var orderedSet in cur)
                 {
@@ -93,12 +93,12 @@ namespace ProjectEuler
             out List<int> P3, out List<int> P4, out List<int> P5,
             out List<int> P6, out List<int> P7, out List<int> P8)
         {
-            P3 = new List<int>();
-            P4 = new List<int>();
-            P5 = new List<int>();
-            P6 = new List<int>();
-            P7 = new List<int>();
-            P8 = new List<int>();
+            P3 = [];
+            P4 = [];
+            P5 = [];
+            P6 = [];
+            P7 = [];
+            P8 = [];
 
             for (int n = 0; n * (n + 1) / 2 < 10000; n++)
             {
