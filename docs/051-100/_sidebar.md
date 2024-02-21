@@ -14,4 +14,5 @@
   - [84 Monopoly Odds](/051-100/84-Monopoly-Odds.md)
   - [86 Cuboid Route](/051-100/86-Cuboid-Route.md)
   - [88 Product-sum Numbers](/051-100/88-Product-sum-Numbers.md)
+  - [89 Roman Numerals](/051-100/89-Roman-Numerals.md)
   - [96 Su Doku](/051-100/96-Su-Doku.md)
