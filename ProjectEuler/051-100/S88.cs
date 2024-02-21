@@ -21,7 +21,7 @@ namespace ProjectEuler
                 ks[i] = int.MaxValue;
             }
 
-            int[] digits = new int[15] { 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+            int[] digits = [2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
             do
             {
