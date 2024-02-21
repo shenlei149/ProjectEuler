@@ -9,8 +9,8 @@ namespace ProjectEuler
 
         public string GetAnswer()
         {
-            var triangles = new List<long>();
-            for (long a = 1; a < L / 2; a += 2)
+            var countMapping = new Dictionary<long, int>();
+            for (long a = 1; a < L / 4; a += 2)
             {
                 for (long b = a + 2; a * b < L / 2; b += 2)
                 {
@@ -21,26 +21,20 @@ namespace ProjectEuler
                             long x = k * a * b;
                             long y = k * (b * b - a * a) / 2;
                             long z = k * (b * b + a * a) / 2;
-                            if (x + y + z <= L)
+                            long c = x + y + z;
+                            if (c <= L)
                             {
-                                triangles.Add(x + y + z);
+                                if (countMapping.ContainsKey(c))
+                                {
+                                    countMapping[c]++;
+                                }
+                                else
+                                {
+                                    countMapping[c] = 1;
+                                }
                             }
                         }
                     }
-                }
-            }
-
-            var countMapping = new Dictionary<long, int>();
-
-            foreach (var circumference in triangles)
-            {
-                if (countMapping.ContainsKey(circumference))
-                {
-                    countMapping[circumference]++;
-                }
-                else
-                {
-                    countMapping[circumference] = 1;
                 }
             }
 

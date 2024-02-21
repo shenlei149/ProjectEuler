@@ -6,6 +6,7 @@
   - [66 Diophantine Equation](/051-100/66-Diophantine-Equation.md)
   - [68 Magic 5-gon Ring](/051-100/68-Magic-5-gon-Ring.md)
   - [74 Digit Factorial Chains](/051-100/74-Digit-Factorial-Chains.md)
+  - [75 Singular Integer Right Triangles](/051-100/75-Singular-Integer-Right-Triangles.md)
   - [80 Square Root Digital Expansion](/051-100/80-Square-Root-Digital-Expansion.md)
   - [82 Path Sum: Three Ways](/051-100/82-Path-Sum-Three-Ways.md)
   - [83 Path Sum: Four Ways](/051-100/83-Path-Sum-Four-Ways.md)
