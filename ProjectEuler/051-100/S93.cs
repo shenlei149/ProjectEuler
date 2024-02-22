@@ -15,14 +15,14 @@ namespace ProjectEuler
             Invalid,
         }
 
-        List<Operators[]> expressions = new List<Operators[]>();
+        readonly List<Operators[]> expressions = [];
 
         public string GetAnswer()
         {
             FillExpressions(expressions);
 
             int max = -1;
-            List<int> digits = new List<int>();
+            List<int> digits = [];
             var series = Utils.Combination(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, 4);
             foreach (var array in series)
             {
@@ -39,7 +39,7 @@ namespace ProjectEuler
 
         private int GetLastConsecutiveNumber(List<int> numbers)
         {
-            List<int> targets = new List<int>();
+            List<int> targets = [];
             var candidates = Utils.Permutations(numbers);
             foreach (var c in candidates)
             {
@@ -61,7 +61,7 @@ namespace ProjectEuler
 
         private List<int> GetTargets(List<int> numbers)
         {
-            List<int> targets = new List<int>();
+            List<int> targets = [];
             foreach (var expression in expressions)
             {
                 targets.AddRange(GetTargets(numbers, expression));
@@ -70,9 +70,9 @@ namespace ProjectEuler
             return targets;
         }
 
-        private List<int> GetTargets(List<int> numbers, Operators[] expression)
+        private static List<int> GetTargets(List<int> numbers, Operators[] expression)
         {
-            List<int> targets = new List<int>();
+            List<int> targets = [];
 
             var target = Compute(expression[1], Compute(expression[0], numbers[0], numbers[1]),
                                                 Compute(expression[2], numbers[2], numbers[3]));
@@ -106,7 +106,7 @@ namespace ProjectEuler
             return targets;
         }
 
-        private void AddNullableTarget(List<int> targets, double? v)
+        private static void AddNullableTarget(List<int> targets, double? v)
         {
             if (v.HasValue)
             {
@@ -118,7 +118,7 @@ namespace ProjectEuler
             }
         }
 
-        private double? Compute(Operators op, double? left, double? right)
+        private static double? Compute(Operators op, double? left, double? right)
         {
             if (!left.HasValue || !right.HasValue)
             {
@@ -145,12 +145,12 @@ namespace ProjectEuler
             return null;
         }
 
-        private void FillExpressions(List<Operators[]> expressions)
+        private static void FillExpressions(List<Operators[]> expressions)
         {
             InternalFillExpressions(expressions, new Operators[3], 0);
         }
 
-        private void InternalFillExpressions(List<Operators[]> expressions, Operators[] expression, int depth)
+        private static void InternalFillExpressions(List<Operators[]> expressions, Operators[] expression, int depth)
         {
             if (depth == 3)
             {
