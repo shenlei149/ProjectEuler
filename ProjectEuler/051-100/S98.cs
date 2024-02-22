@@ -41,7 +41,7 @@ namespace ProjectEuler
             return max.ToString();
         }
 
-        private int GetMaxSquare(List<string> a, Dictionary<int, List<int>> squares)
+        private static int GetMaxSquare(List<string> a, Dictionary<int, List<int>> squares)
         {
             var candidates = squares[a[0].Length];
 
@@ -58,7 +58,7 @@ namespace ProjectEuler
             return max;
         }
 
-        private int GetSquare(List<string> a, string candidate, List<int> squares)
+        private static int GetSquare(List<string> a, string candidate, List<int> squares)
         {
             var map = new Dictionary<char, char>();
             for (int i = 0; i < a[0].Length; i++)
@@ -96,7 +96,7 @@ namespace ProjectEuler
             return -1;
         }
 
-        private List<List<string>> FindAnagrams(string[] words)
+        private static List<List<string>> FindAnagrams(string[] words)
         {
             var anagrams = new List<List<string>>();
             for (int i = 0; i < words.Length; i++)
@@ -120,7 +120,7 @@ namespace ProjectEuler
             return anagrams;
         }
 
-        private bool Match(string word, string candidate)
+        private static bool Match(string word, string candidate)
         {
             if (word.Length != candidate.Length)
             {
