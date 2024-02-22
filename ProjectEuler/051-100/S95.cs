@@ -19,27 +19,19 @@ namespace ProjectEuler
             for (int i = 2; i <= MAX / 2; i++)
             {
                 // excluding the number itself, so j starts from 2
-                for (int j = 2; j <= MAX / 2; j++)
+                for (int j = 2; i * j <= MAX; j++)
                 {
-                    if (i * j > MAX)
-                    {
-                        break;
-                    }
-
                     numberToDivisorSum[i * j] += i;
                 }
             }
 
-            var numberToLength = new List<int>(MAX + 1) { 0 };
             int longest = -1;
             int index = -1;
             for (int i = 1; i <= MAX; i++)
             {
-                numberToLength.Add(0);
                 if (numberToDivisorSum[i] != -1)
                 {
                     int length = GetChainLength(i, numberToDivisorSum);
-                    numberToLength[i] = length;
                     if (length > longest)
                     {
                         index = i;

@@ -17,4 +17,5 @@
   - [89 Roman Numerals](/051-100/89-Roman-Numerals.md)
   - [90 Cube Digit Pairs](/051-100/90-Cube-Digit-Pairs.md)
   - [93 Arithmetic Expressions](/051-100/93-Arithmetic-Expressions.md)
+  - [95 Amicable Chains](/051-100/95-Amicable-Chains.md)
   - [96 Su Doku](/051-100/96-Su-Doku.md)
