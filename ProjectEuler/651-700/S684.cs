@@ -32,7 +32,7 @@ namespace ProjectEuler
             return result.ToString();
         }
 
-        private long S(long f)
+        private static long S(long f)
         {
             long L = f / 9;
             long r = f % 9;
@@ -45,7 +45,7 @@ namespace ProjectEuler
             return (first + second) % Mod;
         }
 
-        private long GetRemainder(long l)
+        private static long GetRemainder(long l)
         {
             if (l < 10)
             {
