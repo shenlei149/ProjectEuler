@@ -4,8 +4,8 @@ namespace ProjectEuler
 {
     public class S205 : ISolution
     {
-        private static readonly List<string> PeterResults = new List<string>();
-        private static readonly List<string> ColinResults = new List<string>();
+        private static readonly List<string> PeterResults = [];
+        private static readonly List<string> ColinResults = [];
 
         public string GetAnswer()
         {
@@ -19,9 +19,9 @@ namespace ProjectEuler
             ColinResults.ForEach(s => Colin[Utils.DigitSum(int.Parse(s))]++);
 
             long numerator = 0;
-            for (int p = 0; p < Peter.Length; p++)
+            for (int p = 1; p < Peter.Length; p++)
             {
-                for (int c = 0; c < Colin.Length; c++)
+                for (int c = 1; c < Colin.Length; c++)
                 {
                     if (p > c)
                     {
