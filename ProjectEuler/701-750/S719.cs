@@ -7,15 +7,20 @@ namespace ProjectEuler
 {
     public class S719 : ISolution
     {
-        private readonly long[] Pows = new long[] {1,10,100,1000, 10000,
+        private readonly long[] Pows = [1,10,100,1000, 10000,
             100000, 1000000, 10000000,100000000,1000000000,
-            10000000000,100000000000,1000000000000};
+            10000000000,100000000000,1000000000000];
 
-        private readonly Dictionary<int, List<Pattern>> patterns = new Dictionary<int, List<Pattern>>();
-        private readonly Dictionary<string, List<Pattern>> mappings = new Dictionary<string, List<Pattern>>();
+        private readonly List<List<Pattern>> patterns = [];
+        private readonly Dictionary<string, List<Pattern>> mappings = [];
 
         public string GetAnswer()
         {
+            for (int i = 0; i < 13; i++)
+            {
+                patterns.Add([]);
+            }
+
             for (int i = 2; i <= 12; i++)
             {
                 patterns[i] = GetAllPatternsByLength(i);
@@ -90,7 +95,7 @@ namespace ProjectEuler
             return mappings[key];
         }
 
-        private List<Pattern> GetAllPatternsByLength(int length)
+        private static List<Pattern> GetAllPatternsByLength(int length)
         {
             var result = new List<Pattern>() { new Pattern().AddPair(Tuple.Create(0, length)) };
             for (int i = 1; i < length; i++)
@@ -110,7 +115,7 @@ namespace ProjectEuler
 
             public Pattern()
             {
-                Pairs = new List<Tuple<int, int>>();
+                Pairs = [];
             }
 
             public Pattern AddPair(Tuple<int, int> pair)
