@@ -10,6 +10,7 @@
   - [117 Red, Green, and Blue Tiles](/101-150/117-Red-Green-and-Blue-Tiles.md)
   - [118 Pandigital Prime Sets](/101-150/118-Pandigital-Prime-Sets.md)
   - [119 Digit Power Sum](/101-150/119-Digit-Power-Sum.md)
+  - [120 Square Remainders](/101-150/120-Square-Remainders.md)
   - [121 Disc Game Prize Fund](/101-150/121-Disc-Game-Prize-Fund.md)
   - [123 Prime Square Remainders](/101-150/123-Prime-Square-Remainders.md)
   - [124 Ordered Radicals](/101-150/124-Ordered-Radicals.md)
