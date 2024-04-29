@@ -5,6 +5,7 @@
   - [64 Odd Period Square Roots](/051-100/64-Odd-Period-Square-Roots.md)
   - [66 Diophantine Equation](/051-100/66-Diophantine-Equation.md)
   - [68 Magic 5-gon Ring](/051-100/68-Magic-5-gon-Ring.md)
+  - [69 Totient Maximum](/051-100/69-Totient-Maximum.md)
   - [74 Digit Factorial Chains](/051-100/74-Digit-Factorial-Chains.md)
   - [75 Singular Integer Right Triangles](/051-100/75-Singular-Integer-Right-Triangles.md)
   - [77 Prime Summations](/051-100/77-Prime-Summations.md)
