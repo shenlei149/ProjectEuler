@@ -1,6 +1,7 @@
 - [Home](/)
 - [051-100](/051-100/)
   - [51 Prime Digit Replacements](/051-100/51-Prime-Digit-Replacements.md)
+  - [52 Permuted Multiples](/051-100/52-Permuted-Multiples.md)
   - [61 Cyclical Figurate Numbers](/051-100/61-Cyclical-Figurate-Numbers.md)
   - [64 Odd Period Square Roots](/051-100/64-Odd-Period-Square-Roots.md)
   - [66 Diophantine Equation](/051-100/66-Diophantine-Equation.md)

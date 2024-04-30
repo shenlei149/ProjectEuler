@@ -6,7 +6,6 @@ namespace ProjectEuler
     {
         public string GetAnswer()
         {
-            int answer = 0;
             for (int i = 3; i < 10; i++)
             {
                 for (int j = (int)Math.Pow(10, i) + 2; j < (int)Math.Pow(10, i + 1) / 6; j += 3)
@@ -19,15 +18,13 @@ namespace ProjectEuler
                             && Utils.IsPermutation(j, j * 3)
                             && Utils.IsPermutation(j, j * 2))
                         {
-                            answer = j;
-                            goto exit;
+                            return j.ToString();
                         }
                     }
                 }
             }
 
-        exit:
-            return answer.ToString();
+            return null;
         }
 
         static bool HasSpecifiedDigit(int number, int spec)
@@ -65,8 +62,7 @@ namespace ProjectEuler
             return HasSpecifiedDigit(number, 9)
                 || HasSpecifiedDigit(number, 8)
                 || HasSpecifiedDigit(number, 7)
-                || HasSpecifiedDigit(number, 6)
-                || HasSpecifiedDigit(number, 5);
+                || HasSpecifiedDigit(number, 6);
         }
     }
 }
