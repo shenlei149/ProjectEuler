@@ -1,3 +1,3 @@
 - [Home](/)
 - [001 - 050](/001-050/)
-  - [26 reciprocal cycles](/001-050/26-reciprocal-cycles.md)
+  - [26 Reciprocal Cycles](/001-050/26-Reciprocal-Cycles.md)
