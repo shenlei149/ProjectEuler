@@ -65,7 +65,7 @@ namespace ProjectEuler
                        .Where(s => s[0] != 0)
                        .ToArray();
 
-            return d10.Select(s => long.Parse(s)).Sum().ToString();
+            return d10.Select(long.Parse).Sum().ToString();
         }
     }
 }
