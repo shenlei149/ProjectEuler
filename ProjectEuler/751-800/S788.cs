@@ -25,7 +25,6 @@ namespace ProjectEuler
             long sum = 0;
             for (int i = 1; i <= MaxD; i++)
             {
-                System.Console.WriteLine(i);
                 sum += Count(i);
                 sum %= Mod;
             }
