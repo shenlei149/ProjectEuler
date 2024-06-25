@@ -210,32 +210,6 @@ namespace ProjectEuler
             return b;
         }
 
-        public static long GetCombinationsCount(long total, long pickedCount, long mod)
-        {
-            BigInteger count = 1;
-
-            long dividend = 2;
-            for (int i = 0; i < pickedCount; i++)
-            {
-                count *= total - i;
-
-                if (dividend > pickedCount)
-                {
-                    count %= mod;
-                }
-                else
-                {
-                    while (dividend <= pickedCount && count % dividend == 0)
-                    {
-                        count /= dividend;
-                        dividend++;
-                    }
-                }
-            }
-
-            return (long)(count % mod);
-        }
-
         public static long GetCombinationsCount(long total, long pickedCount)
         {
             long count = 1;

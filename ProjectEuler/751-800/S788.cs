@@ -1,10 +1,8 @@
-using System.Numerics;
-
 namespace ProjectEuler
 {
     public class S788 : ISolution
     {
-        private static readonly int MaxD = 500;
+        private static readonly int MaxD = 2022;
         private static readonly long Mod = 1_000_000_007;
         private static readonly long[] Power9 = new long[MaxD];
         private static readonly long[,] cache = new long[MaxD + 1, MaxD + 1];
@@ -18,10 +16,16 @@ namespace ProjectEuler
                 Power9[i] %= Mod;
             }
 
+            for (int i = 0; i <= MaxD; i++)
+            {
+                cache[i, 0] = 1;
+                cache[i, 1] = i > 1 ? i : 1;
+            }
+
             long sum = 0;
             for (int i = 1; i <= MaxD; i++)
             {
-                // System.Console.WriteLine(i);
+                System.Console.WriteLine(i);
                 sum += Count(i);
                 sum %= Mod;
             }
@@ -86,9 +90,29 @@ namespace ProjectEuler
 
         private static long GetCombinationsCountWithCache(long total, long pickedCount)
         {
+            if (pickedCount > total)
+            {
+                return 0;
+            }
+
+            if (pickedCount == total)
+            {
+                return 1;
+            }
+
+            if (pickedCount * 2 > total)
+            {
+                pickedCount = total - pickedCount;
+            }
+
             if (cache[total, pickedCount] == 0)
             {
-                cache[total, pickedCount] = Utils.GetCombinationsCount(total, pickedCount, Mod);
+
+                long count = (GetCombinationsCountWithCache(total - 1, pickedCount)
+                            + GetCombinationsCountWithCache(total - 1, pickedCount - 1)) % Mod;
+
+                cache[total, pickedCount] = count;
+                cache[total, total - pickedCount] = count;
             }
 
             return cache[total, pickedCount];
