@@ -97,6 +97,43 @@ namespace ProjectEuler
             return a / gcd * b;
         }
 
+        public static List<long> TrialDivisionFactor(long n, long[] primes)
+        {
+            var results = new List<long>();
+            int index = 0;
+            while (true)
+            {
+                if (primes[index] != 0)
+                {
+                    if (primes[n] != 0)
+                    {
+                        results.Add(n);
+                        break;
+                    }
+
+                    if (n % primes[index] == 0)
+                    {
+                        results.Add(primes[index]);
+
+                        do
+                        {
+                            n /= primes[index];
+                        }
+                        while (n % primes[index] == 0);
+                    }
+
+                    if (n == 1)
+                    {
+                        break;
+                    }
+                }
+
+                index++;
+            }
+
+            return results;
+        }
+
         public static List<Tuple<long, int>> TrialDivisioFactor(long n, long[] primes)
         {
             var results = new List<Tuple<long, int>>();
