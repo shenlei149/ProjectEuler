@@ -299,6 +299,7 @@ namespace XUnitTestProjectEuler
         public void Test901To950()
         {
             Assert.Equal("72673459417881349", new S932().GetAnswer());
+            Assert.Equal("0.2928967987", new S938().GetAnswer());
         }
     }
 }
