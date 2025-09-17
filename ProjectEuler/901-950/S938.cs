@@ -7,7 +7,6 @@ namespace ProjectEuler
 
         static readonly double[][] p = new double[RED + 1][];
 
-        // 0.2928967987
         public string GetAnswer()
         {
             p[0] = new double[BLACK + 1];
