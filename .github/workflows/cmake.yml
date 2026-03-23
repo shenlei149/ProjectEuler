@@ -22,8 +22,8 @@ jobs:
       run: cmake -B build -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
-      run: cmake --build build --config Release
+      run: cmake --build build --config Release -j$(nproc)
 
     - name: Test
       working-directory: build
-      run: ctest -C Release --output-on-failure
+      run: ctest -C Release --output-on-failure -j$(nproc)
