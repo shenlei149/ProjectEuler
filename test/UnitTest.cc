@@ -138,6 +138,7 @@
 #include "../src/851-900/S872.h"
 #include "../src/901-950/S932.h"
 #include "../src/901-950/S938.h"
+#include "../src/901-950/S961.h"
 #include "../src/ISolution.h"
 #include <gtest/gtest.h>
 #include <string>
@@ -489,4 +490,5 @@ TEST(UnitTest19, Test901To950)
 	EXPECT_EQ(std::string("72673459417881349"), S932().GetAnswer());
 	// Time: 2172.85 ms
 	EXPECT_EQ(std::string("0.2928967987"), S938().GetAnswer());
+	EXPECT_EQ(std::string("166666666689036288"), S961().GetAnswer());
 }

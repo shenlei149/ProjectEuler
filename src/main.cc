@@ -144,6 +144,7 @@
 #include "851-900/S872.h"
 #include "901-950/S932.h"
 #include "901-950/S938.h"
+#include "901-950/S961.h"
 
 using namespace ProjectEuler;
 
@@ -583,6 +584,9 @@ int main(int argc, char* argv[]) {
             break;
         case 938:
             solver = std::make_unique<S938>();
+            break;
+        case 961:
+            solver = std::make_unique<S961>();
             break;
         default:
             std::cout << "Problem " << problemId << " not implemented." << std::endl;
