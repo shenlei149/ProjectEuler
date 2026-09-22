@@ -95,6 +95,7 @@
 #include "../src/151-200/S179.h"
 #include "../src/151-200/S187.h"
 #include "../src/201-250/S203.h"
+#include "../src/201-250/S204.h"
 #include "../src/201-250/S205.h"
 #include "../src/201-250/S206.h"
 #include "../src/201-250/S243.h"
@@ -358,6 +359,8 @@ TEST(UnitTest05, Test201To250)
 {
 	// Time: 58.79 ms
 	EXPECT_EQ(std::string("34029210557338"), S203().GetAnswer());
+	// Time: 127.00 ms
+	EXPECT_EQ(std::string("2944730"), S204().GetAnswer());
 	// Time: 13.93 ms
 	EXPECT_EQ(std::string("0.5731441"), S205().GetAnswer());
 	// Time: 185.22 ms
