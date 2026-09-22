@@ -15,7 +15,7 @@ public:
 
 	BigInt() = default;
 
-	BigInt(long long n)
+	BigInt(int64_t n)
 	{
 		if (n == 0)
 		{
@@ -149,7 +149,7 @@ public:
 			int carry = 0;
 			for (size_t j = 0; j < other.digits.size() || carry; ++j)
 			{
-				long long cur =
+				int64_t cur =
 					result.digits[i + j] + digits[i] * 1LL * (j < other.digits.size() ? other.digits[j] : 0) + carry;
 				result.digits[i + j] = cur % 10;
 				carry = cur / 10;
@@ -205,10 +205,10 @@ public:
 	BigInt operator%(const BigInt &other) const { return div_mod(*this, other).second; }
 
 	// Allow BigInt / int etc
-	BigInt operator/(long long other) const { return *this / BigInt(other); }
+	BigInt operator/(int64_t other) const { return *this / BigInt(other); }
 
 	// Multiplication by int
-	BigInt operator*(long long other) const { return *this * BigInt(other); }
+	BigInt operator*(int64_t other) const { return *this * BigInt(other); }
 
 	static BigInt Sqrt(const BigInt &n)
 	{

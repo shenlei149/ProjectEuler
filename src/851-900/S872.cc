@@ -8,10 +8,10 @@ namespace ProjectEuler
 {
 std::string S872::GetAnswer()
 {
-	long long root = 100000000000000000LL; // 10^17
-	long long find = 16677181699666569LL;  // 9^17
-	long long sum = root;
-	long long diff = root - find;
+	int64_t root = 100000000000000000LL; // 10^17
+	int64_t find = 16677181699666569LL;  // 9^17
+	int64_t sum = root;
+	int64_t diff = root - find;
 
 	// Tree structure:
 	// Root n. Children n - 2^k where 2^k < n?
@@ -22,8 +22,8 @@ std::string S872::GetAnswer()
 	// We subtract powers of 2.
 
 	// Code logic:
-	long long node = root;
-	long long diff_level = 1;
+	int64_t node = root;
+	int64_t diff_level = 1;
 	while (diff != 0)
 	{
 		// Try to subtract diff_level?

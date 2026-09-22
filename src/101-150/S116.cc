@@ -9,15 +9,15 @@ namespace ProjectEuler
 {
 std::string S116::GetAnswer()
 {
-	long long red = GetRedCount();
-	long long green = GetGreenCount();
-	long long blue = GetBlueCount();
+	int64_t red = GetRedCount();
+	int64_t green = GetGreenCount();
+	int64_t blue = GetBlueCount();
 	return std::to_string(red + green + blue);
 }
 
-long long S116::GetRedCount()
+int64_t S116::GetRedCount()
 {
-	vector<vector<long long>> reds(3, vector<long long>(Layer, 0));
+	vector<vector<int64_t>> reds(3, vector<int64_t>(Layer, 0));
 	reds[0][0] = 1;
 	reds[1][0] = 1;
 	reds[2][0] = 0;
@@ -31,9 +31,9 @@ long long S116::GetRedCount()
 	return reds[0][Layer - 1] + reds[2][Layer - 1] - 1;
 }
 
-long long S116::GetGreenCount()
+int64_t S116::GetGreenCount()
 {
-	vector<vector<long long>> greens(4, vector<long long>(Layer, 0));
+	vector<vector<int64_t>> greens(4, vector<int64_t>(Layer, 0));
 	greens[0][0] = 1;
 	greens[1][0] = 1;
 	greens[2][0] = 0;
@@ -49,9 +49,9 @@ long long S116::GetGreenCount()
 	return greens[0][Layer - 1] + greens[3][Layer - 1] - 1;
 }
 
-long long S116::GetBlueCount()
+int64_t S116::GetBlueCount()
 {
-	vector<vector<long long>> blues(5, vector<long long>(Layer, 0));
+	vector<vector<int64_t>> blues(5, vector<int64_t>(Layer, 0));
 	blues[0][0] = 1;
 	blues[1][0] = 1;
 	blues[2][0] = 0;

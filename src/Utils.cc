@@ -7,7 +7,7 @@ namespace ProjectEuler
 // Helper random
 static std::mt19937_64 rng(std::random_device {}());
 
-BigInt Utils::Pow(long long b, int n)
+BigInt Utils::Pow(int64_t b, int n)
 {
 	if (n == 0)
 	{
@@ -52,11 +52,11 @@ int Utils::GetCoprimeCount(int n)
 	return ret;
 }
 
-long long Utils::GetLcm(long long a, long long b) { return (a / GetGcd(a, b)) * b; }
+int64_t Utils::GetLcm(int64_t a, int64_t b) { return (a / GetGcd(a, b)) * b; }
 
-long long Utils::GetGcd(long long a, long long b)
+int64_t Utils::GetGcd(int64_t a, int64_t b)
 {
-	long long r = a % b;
+	int64_t r = a % b;
 	while (r > 0)
 	{
 		a = b;
@@ -66,19 +66,19 @@ long long Utils::GetGcd(long long a, long long b)
 	return b;
 }
 
-long long Utils::GetGcd(long long m, long long n, long long &a, long long &b)
+int64_t Utils::GetGcd(int64_t m, int64_t n, int64_t &a, int64_t &b)
 {
 	a = 0;
 	b = 1;
-	long long ap = 1;
-	long long bp = 0;
-	long long q = m / n;
-	long long r = m % n;
+	int64_t ap = 1;
+	int64_t bp = 0;
+	int64_t q = m / n;
+	int64_t r = m % n;
 	while (r > 0)
 	{
 		m = n;
 		n = r;
-		long long t = ap;
+		int64_t t = ap;
 		ap = a;
 		a = t - q * a;
 		t = bp;
@@ -90,9 +90,9 @@ long long Utils::GetGcd(long long m, long long n, long long &a, long long &b)
 	return n;
 }
 
-std::vector<long long> Utils::TrialDivisionFactor(long long n, const std::vector<long long> &primes)
+std::vector<int64_t> Utils::TrialDivisionFactor(int64_t n, const std::vector<int64_t> &primes)
 {
-	std::vector<long long> results;
+	std::vector<int64_t> results;
 	int index = 0;
 	while (true)
 	{
@@ -126,12 +126,12 @@ std::vector<long long> Utils::TrialDivisionFactor(long long n, const std::vector
 	return results;
 }
 
-std::map<long long, int> Utils::Factorize(long long n, const std::vector<long long> &primes)
+std::map<int64_t, int> Utils::Factorize(int64_t n, const std::vector<int64_t> &primes)
 {
-	std::vector<long long> factors;
+	std::vector<int64_t> factors;
 	Factorize(n, primes, factors);
 
-	std::map<long long, int> maps;
+	std::map<int64_t, int> maps;
 	for (auto factor : factors)
 	{
 		maps[factor]++;
@@ -139,7 +139,7 @@ std::map<long long, int> Utils::Factorize(long long n, const std::vector<long lo
 	return maps;
 }
 
-void Utils::Factorize(long long n, const std::vector<long long> &primes, std::vector<long long> &factors)
+void Utils::Factorize(int64_t n, const std::vector<int64_t> &primes, std::vector<int64_t> &factors)
 {
 	if (n == 1)
 	{
@@ -155,7 +155,7 @@ void Utils::Factorize(long long n, const std::vector<long long> &primes, std::ve
 
 	// If simple trial division works? Or Pollard Rho?
 	// C# code calls PollardRho if not in primes array.
-	long long divisor = PollardRho(n);
+	int64_t divisor = PollardRho(n);
 	if (divisor == n)
 	{ // Prime
 		factors.push_back(n);
@@ -167,7 +167,7 @@ void Utils::Factorize(long long n, const std::vector<long long> &primes, std::ve
 	}
 }
 
-long long Utils::PollardRho(long long n)
+int64_t Utils::PollardRho(int64_t n)
 {
 	if (n % 2 == 0)
 	{
@@ -178,12 +178,12 @@ long long Utils::PollardRho(long long n)
 		return n; // Optimization
 	}
 
-	long long x = std::uniform_int_distribution<long long>(1, n - 1)(rng);
-	long long c = std::uniform_int_distribution<long long>(1, n - 1)(rng);
-	long long y = x;
-	long long g = 1;
+	int64_t x = std::uniform_int_distribution<int64_t>(1, n - 1)(rng);
+	int64_t c = std::uniform_int_distribution<int64_t>(1, n - 1)(rng);
+	int64_t y = x;
+	int64_t g = 1;
 
-	auto f = [&](long long x) { return ((__int128)x * x + c) % n; };
+	auto f = [&](int64_t x) { return ((__int128)x * x + c) % n; };
 
 	while (g == 1)
 	{
@@ -192,8 +192,8 @@ long long Utils::PollardRho(long long n)
 		g = GetGcd(std::abs(x - y), n);
 		if (g == n)
 		{ // Failure, retry
-			x = std::uniform_int_distribution<long long>(1, n - 1)(rng);
-			c = std::uniform_int_distribution<long long>(1, n - 1)(rng);
+			x = std::uniform_int_distribution<int64_t>(1, n - 1)(rng);
+			c = std::uniform_int_distribution<int64_t>(1, n - 1)(rng);
 			y = x;
 			g = 1;
 		}
@@ -201,9 +201,9 @@ long long Utils::PollardRho(long long n)
 	return g;
 }
 
-long long Utils::GetCombinationsCount(long long total, long long pickedCount)
+int64_t Utils::GetCombinationsCount(int64_t total, int64_t pickedCount)
 {
-	long long count = 1;
+	int64_t count = 1;
 	for (int i = 0; i < pickedCount; i++)
 	{
 		count *= total - i;
@@ -220,7 +220,7 @@ bool Utils::IsPandigital(const std::vector<int> &numbers)
 	int digits[10] = { 0 };
 	for (auto n : numbers)
 	{
-		long long y = n; // Assuming n fits in long long
+		int64_t y = n; // Assuming n fits in int64_t
 		while (y != 0)
 		{
 			digits[y % 10]++;
@@ -265,7 +265,7 @@ bool Utils::IsPandigital(const std::string &s, bool canContainsZero)
 	return distinct.size() == s.length();
 }
 
-int Utils::DigitSum(long long number)
+int Utils::DigitSum(int64_t number)
 {
 	int sum = 0;
 	while (number != 0)
@@ -276,10 +276,10 @@ int Utils::DigitSum(long long number)
 	return sum;
 }
 
-std::vector<long long> Utils::GenPrimeSieve(long long end)
+std::vector<int64_t> Utils::GenPrimeSieve(int64_t end)
 {
-	std::vector<long long> primes(end);
-	for (long long i = 0; i < end; i++)
+	std::vector<int64_t> primes(end);
+	for (int64_t i = 0; i < end; i++)
 	{
 		primes[i] = i;
 	}
@@ -289,12 +289,12 @@ std::vector<long long> Utils::GenPrimeSieve(long long end)
 		primes[1] = 0;
 	}
 
-	for (long long i = 0; i * i < end; i++)
+	for (int64_t i = 0; i * i < end; i++)
 	{
 		if (primes[i] != 0)
 		{
-			long long p = primes[i];
-			for (long long j = 2; j * p < end; j++)
+			int64_t p = primes[i];
+			for (int64_t j = 2; j * p < end; j++)
 			{
 				primes[j * p] = 0;
 			}
@@ -303,9 +303,9 @@ std::vector<long long> Utils::GenPrimeSieve(long long end)
 	return primes;
 }
 
-std::vector<long long> Utils::GenPrimes(long long end)
+std::vector<int64_t> Utils::GenPrimes(int64_t end)
 {
-	std::vector<long long> results;
+	std::vector<int64_t> results;
 	std::vector<bool> primes(end, true);
 
 	if (end > 0)
@@ -317,19 +317,19 @@ std::vector<long long> Utils::GenPrimes(long long end)
 		primes[1] = false;
 	}
 
-	for (long long i = 0; i * i < end; i++)
+	for (int64_t i = 0; i * i < end; i++)
 	{
 		if (primes[i])
 		{
-			long long p = i;
-			for (long long j = 2; j * p < end; j++)
+			int64_t p = i;
+			for (int64_t j = 2; j * p < end; j++)
 			{
 				primes[j * p] = false;
 			}
 			results.push_back(i);
 		}
 	}
-	for (long long i = std::sqrt(end) + 1; i < end; i++)
+	for (int64_t i = std::sqrt(end) + 1; i < end; i++)
 	{
 		if (primes[i])
 		{
@@ -341,7 +341,7 @@ std::vector<long long> Utils::GenPrimes(long long end)
 	return results;
 }
 
-long long Utils::Factorial(long long i)
+int64_t Utils::Factorial(int64_t i)
 {
 	if (i < 0)
 	{
@@ -366,7 +366,7 @@ bool Utils::IsPalindrome(const std::string &s)
 	return true;
 }
 
-bool Utils::IsPrime(long long number, const std::vector<long long> &primes)
+bool Utils::IsPrime(int64_t number, const std::vector<int64_t> &primes)
 {
 	if (number <= 1)
 	{
@@ -377,8 +377,8 @@ bool Utils::IsPrime(long long number, const std::vector<long long> &primes)
 		return true;
 	}
 
-	long long max = (long long)std::ceil(std::sqrt(number));
-	for (long long n : primes)
+	int64_t max = (int64_t)std::ceil(std::sqrt(number));
+	for (int64_t n : primes)
 	{
 		if (n == 0)
 		{
@@ -396,7 +396,7 @@ bool Utils::IsPrime(long long number, const std::vector<long long> &primes)
 	return true;
 }
 
-bool Utils::IsPrime(long long number)
+bool Utils::IsPrime(int64_t number)
 {
 	if (number <= 1)
 	{
@@ -411,8 +411,8 @@ bool Utils::IsPrime(long long number)
 		return false;
 	}
 
-	long long max = (long long)std::ceil(std::sqrt(number));
-	for (long long i = 3; i <= max; i += 2)
+	int64_t max = (int64_t)std::ceil(std::sqrt(number));
+	for (int64_t i = 3; i <= max; i += 2)
 	{
 		if (number % i == 0)
 		{
@@ -422,7 +422,7 @@ bool Utils::IsPrime(long long number)
 	return true;
 }
 
-bool Utils::IsPermutation(long long x, long long y)
+bool Utils::IsPermutation(int64_t x, int64_t y)
 {
 	if (x == y)
 	{
@@ -449,9 +449,9 @@ bool Utils::IsPermutation(long long x, long long y)
 	return true;
 }
 
-long long Utils::Reverse(long long x)
+int64_t Utils::Reverse(int64_t x)
 {
-	long long re = 0;
+	int64_t re = 0;
 	while (x != 0)
 	{
 		int d = x % 10;

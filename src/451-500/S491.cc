@@ -9,9 +9,9 @@ using namespace std;
 
 namespace ProjectEuler
 {
-long long Factorial(int n)
+int64_t Factorial(int n)
 {
-	long long res = 1;
+	int64_t res = 1;
 	for (int i = 2; i <= n; ++i)
 	{
 		res *= i;
@@ -19,7 +19,7 @@ long long Factorial(int n)
 	return res;
 }
 
-long long CalculatePermutations(const std::vector<int> &digits)
+int64_t CalculatePermutations(const std::vector<int> &digits)
 {
 	std::map<int, int> counts;
 	for (int x : digits)
@@ -27,7 +27,7 @@ long long CalculatePermutations(const std::vector<int> &digits)
 		counts[x]++;
 	}
 
-	long long n = Factorial(digits.size());
+	int64_t n = Factorial(digits.size());
 	for (const auto &[key, val] : counts)
 	{
 		if (val > 1)
@@ -39,11 +39,11 @@ long long CalculatePermutations(const std::vector<int> &digits)
 }
 
 // Forward declaration
-void Solve(int depth, int startDigit, int currentSum, std::vector<int> &available, long long &count);
+void Solve(int depth, int startDigit, int currentSum, std::vector<int> &available, int64_t &count);
 
 std::string S491::GetAnswer()
 {
-	long long count = 0;
+	int64_t count = 0;
 	std::vector<int> available(10, 2);
 
 	Solve(0, 0, 0, available, count);
@@ -52,7 +52,7 @@ std::string S491::GetAnswer()
 }
 
 // Implementation
-void Solve(int depth, int startDigit, int currentSum, std::vector<int> &available, long long &count)
+void Solve(int depth, int startDigit, int currentSum, std::vector<int> &available, int64_t &count)
 {
 	if (depth == 10)
 	{
@@ -84,11 +84,11 @@ void Solve(int depth, int startDigit, int currentSum, std::vector<int> &availabl
 			}
 		}
 
-		long long oddPerms = 0;
+		int64_t oddPerms = 0;
 		// Odd positions (1,3..19) -> 10 positions.
 		// Any permutation of oddSet is valid for the odd positions.
 		{
-			long long n = 3628800; // 10!
+			int64_t n = 3628800; // 10!
 			std::map<int, int> counts;
 			for (int x : oddSet)
 			{
@@ -104,11 +104,11 @@ void Solve(int depth, int startDigit, int currentSum, std::vector<int> &availabl
 			oddPerms = n;
 		}
 
-		long long evenPerms = 0;
+		int64_t evenPerms = 0;
 		// Even positions (2,4..20). Leading digit is at 20.
 		// Leading digit cannot be 0.
 		{
-			long long n = 3628800; // 10!
+			int64_t n = 3628800; // 10!
 			std::map<int, int> counts;
 			for (int x : evenSet)
 			{
@@ -122,7 +122,7 @@ void Solve(int depth, int startDigit, int currentSum, std::vector<int> &availabl
 				}
 			}
 
-			long long totalEven = n;
+			int64_t totalEven = n;
 
 			// If 0 is in evenSet
 			int zeroCount = 0;
@@ -137,7 +137,7 @@ void Solve(int depth, int startDigit, int currentSum, std::vector<int> &availabl
 			if (zeroCount > 0)
 			{
 				// Perms starting with 0 = Total * (count(0) / 10)
-				long long invalid = totalEven * zeroCount / 10;
+				int64_t invalid = totalEven * zeroCount / 10;
 				evenPerms = totalEven - invalid;
 			}
 			else

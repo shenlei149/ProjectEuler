@@ -9,7 +9,7 @@ namespace ProjectEuler
 {
 std::string S80::GetAnswer()
 {
-	long long totalSum = 0;
+	int64_t totalSum = 0;
 	// 10^200 - ensures 100 digits of precision (actually yields ~100 digits integer)
 	// Sqrt(n * 10^200) approx Sqrt(n) * 10^100.
 	// We want 100 decimal digits.
@@ -21,7 +21,7 @@ std::string S80::GetAnswer()
 
 	for (int i = 1; i <= 100; i++)
 	{
-		long long root = std::llround(std::sqrt(i));
+		int64_t root = std::llround(std::sqrt(i));
 		if (root * root == i)
 		{
 			continue;

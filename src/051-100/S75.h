@@ -14,6 +14,6 @@ public:
 	std::string GetAnswer() override;
 
 private:
-	long long L = 1500000;
+	int64_t L = 1500000;
 };
 } // namespace ProjectEuler

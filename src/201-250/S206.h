@@ -12,6 +12,6 @@ class S206 : public ISolution
 {
 public:
 	std::string GetAnswer() override;
-	bool HasRightForm(long long i);
+	bool HasRightForm(int64_t i);
 };
 } // namespace ProjectEuler

@@ -8,7 +8,7 @@ namespace ProjectEuler
 {
 std::string S820::GetAnswer()
 {
-	long long sum = 0;
+	int64_t sum = 0;
 	// nth decimal digit of 1/k. n=MAX=10^7.
 	// digit = floor( (10^n / k) % 10 ).
 	// = floor( 10^n / k ) % 10.
@@ -45,14 +45,14 @@ std::string S820::GetAnswer()
 
 int S820::D(int k)
 {
-	long long pm = PowerMod(10, MAX - 1, k);
+	int64_t pm = PowerMod(10, MAX - 1, k);
 	return (int)(pm * 10 / k);
 }
 
 int S820::PowerMod(int baseValue, int exponent, int modulus)
 {
-	long long result = 1;
-	long long baseMod = baseValue % modulus;
+	int64_t result = 1;
+	int64_t baseMod = baseValue % modulus;
 
 	while (exponent > 0)
 	{

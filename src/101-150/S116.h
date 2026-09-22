@@ -12,9 +12,9 @@ class S116 : public ISolution
 {
 public:
 	std::string GetAnswer() override;
-	long long GetRedCount();
-	long long GetGreenCount();
-	long long GetBlueCount();
+	int64_t GetRedCount();
+	int64_t GetGreenCount();
+	int64_t GetBlueCount();
 
 private:
 	int Layer = 50;

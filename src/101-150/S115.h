@@ -12,6 +12,6 @@ class S115 : public ISolution
 {
 public:
 	std::string GetAnswer() override;
-	long long F(int m, int n);
+	int64_t F(int m, int n);
 };
 } // namespace ProjectEuler

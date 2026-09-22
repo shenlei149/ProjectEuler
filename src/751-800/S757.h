@@ -11,9 +11,9 @@ public:
 	std::string GetAnswer() override;
 
 private:
-	void TryDelta(long long delta);
-	long long GetMaxN(long long delta);
-	std::vector<long long> StealthyNumbers;
-	long long MAX = 100000000000000;
+	void TryDelta(int64_t delta);
+	int64_t GetMaxN(int64_t delta);
+	std::vector<int64_t> StealthyNumbers;
+	int64_t MAX = 100000000000000;
 };
 } // namespace ProjectEuler

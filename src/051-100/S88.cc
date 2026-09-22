@@ -61,7 +61,7 @@ std::string S88::GetAnswer()
 
 		for (int i = start;; ++i)
 		{
-			long long next_p = (long long)product * i;
+			int64_t next_p = (int64_t)product * i;
 			if (next_p > 2 * Max)
 			{
 				break; // Heuristic limit
@@ -84,7 +84,7 @@ std::string S88::GetAnswer()
 		}
 	}
 
-	long long total_sum = 0;
+	int64_t total_sum = 0;
 	for (int s : unique_sums)
 	{
 		total_sum += s;

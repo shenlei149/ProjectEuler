@@ -7,7 +7,7 @@ namespace ProjectEuler
 {
 std::string S97::GetAnswer()
 {
-	long long massivePrime = 1;
+	int64_t massivePrime = 1;
 	for (int i = 0; i < 7830457; i++)
 	{
 		massivePrime *= 2;

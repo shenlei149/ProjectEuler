@@ -16,14 +16,14 @@ string S518::GetAnswer()
 
 	// Fast prime check using sieve
 	vector<bool> isPrime(LIMIT, false);
-	// Utils::GenPrimes returns vector<long long> or int. Assuming long long based on previous context.
+	// Utils::GenPrimes returns vector<int64_t> or int. Assuming int64_t based on previous context.
 	auto primes = Utils::GenPrimes(LIMIT);
 	for (auto p : primes)
 	{
 		isPrime[p] = true;
 	}
 
-	long long sum = 0;
+	int64_t sum = 0;
 
 	// We look for geometric progression a+1, b+1, c+1 where a,b,c are primes < LIMIT.
 	// Let x = a+1, y = b+1, z = c+1.
@@ -33,21 +33,21 @@ string S518::GetAnswer()
 	// Iterate u, v such that z < LIMIT
 	// z = n*u^2 < LIMIT => u < sqrt(LIMIT)
 
-	for (long long u = 1; u * u < LIMIT; ++u)
+	for (int64_t u = 1; u * u < LIMIT; ++u)
 	{
-		for (long long v = 1; v < u; ++v)
+		for (int64_t v = 1; v < u; ++v)
 		{
 			if (std::gcd(u, v) == 1)
 			{
 				// z = n*u^2 < LIMIT
 				// n < LIMIT / u^2
-				long long n_limit = (LIMIT - 1) / (u * u);
+				int64_t n_limit = (LIMIT - 1) / (u * u);
 
-				for (long long n = 1; n <= n_limit; ++n)
+				for (int64_t n = 1; n <= n_limit; ++n)
 				{
-					long long x = n * v * v;
-					long long y = n * u * v;
-					long long z = n * u * u;
+					int64_t x = n * v * v;
+					int64_t y = n * u * v;
+					int64_t z = n * u * u;
 
 					// Primes are >= 2, so x,y,z >= 3.
 					// However, geometric progression usually implies distinct terms, so u > v implies x < y < z.

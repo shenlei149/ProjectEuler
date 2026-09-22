@@ -13,9 +13,9 @@ std::string S757::GetAnswer()
 {
 	// Limit delta to N^(1/3)
 	// logic based on ported code
-	long long limit = (long long)std::pow(MAX, 1.0 / 3.0) + 2;
+	int64_t limit = (int64_t)std::pow(MAX, 1.0 / 3.0) + 2;
 
-	for (long long delta = 1; delta < limit; delta++)
+	for (int64_t delta = 1; delta < limit; delta++)
 	{
 		TryDelta(delta);
 	}
@@ -27,9 +27,9 @@ std::string S757::GetAnswer()
 	return std::to_string(StealthyNumbers.size());
 }
 
-void S757::TryDelta(long long delta)
+void S757::TryDelta(int64_t delta)
 {
-	long long n = GetMaxN(delta);
+	int64_t n = GetMaxN(delta);
 	// Check overflow
 	// n*(n+1)*delta*(delta+1) > MAX
 	// We want a*b <= MAX.
@@ -54,14 +54,14 @@ void S757::TryDelta(long long delta)
 		return;
 	}
 
-	for (long long m = delta; m <= n; m++)
+	for (int64_t m = delta; m <= n; m++)
 	{
-		long long a = m * delta;
-		long long b = (m + 1) * (delta + 1);
+		int64_t a = m * delta;
+		int64_t b = (m + 1) * (delta + 1);
 		StealthyNumbers.push_back(a * b);
 	}
 }
 
-long long S757::GetMaxN(long long delta) { return (long long)std::sqrt(MAX / (delta * (delta + 1))); }
+int64_t S757::GetMaxN(int64_t delta) { return (int64_t)std::sqrt(MAX / (delta * (delta + 1))); }
 
 } // namespace ProjectEuler

@@ -35,8 +35,8 @@ std::string S549::GetAnswer()
 		if (S[i] == 0)
 		{
 			// i is prime
-			long long p = i;
-			long long pk = p;
+			int64_t p = i;
+			int64_t pk = p;
 			int k = 1;
 
 			while (pk <= N)
@@ -69,7 +69,7 @@ std::string S549::GetAnswer()
 		}
 	}
 
-	long long sum = 0;
+	int64_t sum = 0;
 	for (int i = 2; i <= N; ++i)
 	{
 		sum += S[i];

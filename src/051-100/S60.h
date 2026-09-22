@@ -11,8 +11,8 @@ public:
 	std::string GetAnswer() override;
 
 private:
-	bool IsPrime(long long n);
-	bool Check(long long a, long long b);
+	bool IsPrime(int64_t n);
+	bool Check(int64_t a, int64_t b);
 	void FindClique(std::vector<int> &clique, int startIdx, const std::vector<int> &primes, int &minSum);
 };
 } // namespace ProjectEuler

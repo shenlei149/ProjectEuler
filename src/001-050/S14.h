@@ -12,7 +12,7 @@ class S14 : public ISolution
 {
 public:
 	std::string GetAnswer() override;
-	int GetChainLength(long long number);
+	int GetChainLength(int64_t number);
 
 private:
 	std::vector<int> termsLength;

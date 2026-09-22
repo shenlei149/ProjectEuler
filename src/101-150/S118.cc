@@ -21,13 +21,13 @@ std::string S118::GetAnswer()
 	// Actually GenPrimes is generating primes by digits.
 	// Primes could be up to 9 digits.
 	// We need Miller-Rabin or trial division.
-	// Utils::IsPrime(long long) should be sufficient.
+	// Utils::IsPrime(int64_t) should be sufficient.
 
 	// Primes up to 10000 passed to GenPrimes. Why?
 	// C# code: Utils::GenPrimes(10000).
 	// Maybe for IsPrime optimization.
 
-	std::vector<long long> smallPrimes = Utils::GenPrimes(10000);
+	std::vector<int64_t> smallPrimes = Utils::GenPrimes(10000);
 	// Remove 0 if present? GenPrimes usually returns primes.
 
 	for (int i = 1; i < 10; i++)
@@ -201,7 +201,7 @@ void S118::GenSets(const std::vector<int> &elements, int length, int lastLength,
 	}
 }
 
-void S118::GenPrimes(int value, int length, const std::vector<long long> &primes)
+void S118::GenPrimes(int value, int length, const std::vector<int64_t> &primes)
 {
 	// Check if value digits are unique (no 0, no duplicates)
 	// Utils::IsPandigital(value) checks if 1..N digits are present?

@@ -12,7 +12,7 @@ namespace ProjectEuler
 std::string S357::GetAnswer()
 {
 	// 100,000,000
-	long long MAX = 100000000;
+	int64_t MAX = 100000000;
 
 	// We need to sum n <= 10^8 such that for every divisor d of n, d + n/d is prime.
 	// Necessary condition: 1 + n is prime (d=1).
@@ -23,16 +23,16 @@ std::string S357::GetAnswer()
 
 	// Fast prime check
 	std::vector<bool> isPrime(MAX + 2, false);
-	for (long long p : primes)
+	for (int64_t p : primes)
 	{
 		isPrime[p] = true;
 	}
 
-	long long sum = 0;
+	int64_t sum = 0;
 
-	for (long long p : primes)
+	for (int64_t p : primes)
 	{
-		long long n = p - 1;
+		int64_t n = p - 1;
 		if (n > MAX)
 		{
 			break;
@@ -40,7 +40,7 @@ std::string S357::GetAnswer()
 
 		bool ok = true;
 		// Iterate divisors of n
-		for (long long d = 1; d * d <= n; ++d)
+		for (int64_t d = 1; d * d <= n; ++d)
 		{
 			if (n % d == 0)
 			{

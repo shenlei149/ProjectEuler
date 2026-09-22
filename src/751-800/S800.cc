@@ -45,7 +45,7 @@ std::string S800::GetAnswer()
 		logs[i] = std::log(primes[i]);
 	}
 
-	long long count = 0;
+	int64_t count = 0;
 
 	// Two pointers
 	// Left p_idx, Right q_idx.
@@ -56,12 +56,12 @@ std::string S800::GetAnswer()
 
 	while (left < right)
 	{
-		long long p = primes[left];
+		int64_t p = primes[left];
 		double log_p = logs[left];
 
 		while (left < right)
 		{
-			long long q = primes[right];
+			int64_t q = primes[right];
 			double log_q = logs[right];
 
 			if (q * log_p + p * log_q <= C)

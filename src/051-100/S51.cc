@@ -14,7 +14,7 @@ std::string S51::GetAnswer()
 
 	auto all_primes = Utils::GenPrimes(1000000);
 	std::vector<int> primes;
-	for (long long p : all_primes)
+	for (int64_t p : all_primes)
 	{
 		if (p > 100000)
 		{

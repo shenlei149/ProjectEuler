@@ -13,7 +13,7 @@ std::string S121::GetAnswer()
 	int turns = 15;
 	// Polynomial coefficients. P[i] is coeff of x^i (i blues).
 	// Initial: turn 0 (no discs taken yet): 1 way to have 0 blues.
-	std::vector<long long> poly = { 1 };
+	std::vector<int64_t> poly = { 1 };
 
 	// Turns 1 to 15.
 	// Turn k (1-based index):
@@ -23,7 +23,7 @@ std::string S121::GetAnswer()
 
 	for (int k = 1; k <= turns; k++)
 	{
-		std::vector<long long> next_poly(poly.size() + 1, 0);
+		std::vector<int64_t> next_poly(poly.size() + 1, 0);
 		for (size_t i = 0; i < poly.size(); i++)
 		{
 			// Term x^i from prev poly.
@@ -36,7 +36,7 @@ std::string S121::GetAnswer()
 		poly = next_poly;
 	}
 
-	long long numerator = 0;
+	int64_t numerator = 0;
 	// Win if blues > turns / 2.
 	// i.e. blues >= 8.
 	for (int i = turns / 2 + 1; i <= turns; i++)
@@ -50,8 +50,8 @@ std::string S121::GetAnswer()
 	// Denominator is (turns + 1)! = 16!
 	// But we computed weighted sum. Total weight is sum of coeffs of poly.
 	// Poly is product (x+k). Sum of coeffs is P(1) = product (1+k) = (n+1)!
-	long long total = 0;
-	for (long long c : poly)
+	int64_t total = 0;
+	for (int64_t c : poly)
 	{
 		total += c;
 	}

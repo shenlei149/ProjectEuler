@@ -12,6 +12,6 @@ class S94 : public ISolution
 {
 public:
 	std::string GetAnswer() override;
-	bool Meet(long long a, long long c);
+	bool Meet(int64_t a, int64_t c);
 };
 } // namespace ProjectEuler

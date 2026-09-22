@@ -13,13 +13,13 @@ std::string S114::GetAnswer()
 	// red_length: 0 for grey, >0 for red block of that length ending at position
 	// position: 0 to Layer-1
 
-	// C# `new long long[RedBlockLength + 1, Layer]`
+	// C# `new int64_t[RedBlockLength + 1, Layer]`
 	// Dimensions: [51][50]
 
 	int rows = RedBlockLength + 1;
 	int cols = Layer;
 
-	std::vector<std::vector<long long>> reds(rows, std::vector<long long>(cols, 0));
+	std::vector<std::vector<int64_t>> reds(rows, std::vector<int64_t>(cols, 0));
 
 	// Base case at pos 0
 	reds[0][0] = 1; // 1 grey
@@ -30,7 +30,7 @@ std::string S114::GetAnswer()
 	{
 		// Calculate reds[0][layer] (grey at current pos)
 		// Previous can be grey (0) or red block of length >= 3
-		long long count = 0;
+		int64_t count = 0;
 
 		// From grey
 		count += reds[0][layer - 1];
@@ -53,7 +53,7 @@ std::string S114::GetAnswer()
 
 	// Result is sum of valid states at last layer
 	// Valid states: grey or red block >= 3
-	long long result = 0;
+	int64_t result = 0;
 	result += reds[0][cols - 1];
 	for (int r = 3; r < rows; r++)
 	{

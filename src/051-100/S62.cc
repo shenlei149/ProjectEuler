@@ -11,11 +11,11 @@ namespace ProjectEuler
 {
 std::string S62::GetAnswer()
 {
-	std::map<std::string, std::vector<long long>> cubeMapping;
+	std::map<std::string, std::vector<int64_t>> cubeMapping;
 
-	for (long long i = 1;; i++)
+	for (int64_t i = 1;; i++)
 	{
-		long long cube = i * i * i;
+		int64_t cube = i * i * i;
 		std::string s = std::to_string(cube);
 		std::sort(s.begin(), s.end());
 

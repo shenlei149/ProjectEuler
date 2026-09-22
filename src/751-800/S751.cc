@@ -30,7 +30,7 @@ std::string S751::GetAnswer()
 
 		for (int i = 0; i < Length - 1; i++)
 		{
-			long long b = (long long)std::floor(bn[i]);
+			int64_t b = (int64_t)std::floor(bn[i]);
 			bn[i + 1] = b * (bn[i] - b + 1);
 			an[i + 1] = (int)std::floor(bn[i + 1]);
 		}

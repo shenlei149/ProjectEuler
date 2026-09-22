@@ -24,7 +24,7 @@ std::string S37::GetAnswer()
 		}
 	}
 
-	long long sum = 0;
+	int64_t sum = 0;
 	for (auto p : truncatablePrimes)
 	{
 		sum += p;

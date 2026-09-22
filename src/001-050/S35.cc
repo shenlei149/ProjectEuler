@@ -23,13 +23,13 @@ std::string S35::GetAnswer()
 	return std::to_string(count);
 }
 
-std::vector<long long> S35::GetRotations(long long i)
+std::vector<int64_t> S35::GetRotations(int64_t i)
 {
 	std::string tmp = std::to_string(i);
 	int length = tmp.size();
 	tmp += tmp;
 
-	std::vector<long long> rotations;
+	std::vector<int64_t> rotations;
 	for (int j = 0; j < length; j++)
 	{
 		rotations.push_back(std::stoll(tmp.substr(j, length)));
@@ -38,7 +38,7 @@ std::vector<long long> S35::GetRotations(long long i)
 	return rotations;
 }
 
-bool S35::IsCircularPrime(long long prime, const std::vector<long long> &primes)
+bool S35::IsCircularPrime(int64_t prime, const std::vector<int64_t> &primes)
 {
 	auto rotations = GetRotations(prime);
 

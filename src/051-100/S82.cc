@@ -23,7 +23,7 @@ std::string S82::GetAnswer()
 
 	// DP state: min cost to reach (i, j)
 	// We process column by column
-	std::vector<long long> col_costs(rows);
+	std::vector<int64_t> col_costs(rows);
 
 	// Initialize with first column
 	for (int i = 0; i < rows; ++i)
@@ -52,7 +52,7 @@ std::string S82::GetAnswer()
 		}
 	}
 
-	long long min_path = col_costs[0];
+	int64_t min_path = col_costs[0];
 	for (int i = 1; i < rows; ++i)
 	{
 		min_path = std::min(min_path, col_costs[i]);

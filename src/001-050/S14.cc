@@ -5,7 +5,7 @@ using namespace std;
 
 namespace ProjectEuler
 {
-int S14::GetChainLength(long long number)
+int S14::GetChainLength(int64_t number)
 {
 	int length = 1;
 	while (number != 1)

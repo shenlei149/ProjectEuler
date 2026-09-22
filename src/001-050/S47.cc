@@ -8,8 +8,8 @@ namespace ProjectEuler
 std::string S47::GetAnswer()
 {
 	auto primes = Utils::GenPrimeSieve(200000);
-	std::vector<long long> results;
-	for (long long i = 646;; i++)
+	std::vector<int64_t> results;
+	for (int64_t i = 646;; i++)
 	{
 		if (Utils::Factorize(i, primes).size() == 4)
 		{

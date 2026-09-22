@@ -15,11 +15,11 @@ namespace ProjectEuler
 class Utils
 {
 public:
-	static BigInt Pow(long long b, int n);
+	static BigInt Pow(int64_t b, int n);
 
-	static long long Pow(long long base, long long exp, long long mod)
+	static int64_t Pow(int64_t base, int64_t exp, int64_t mod)
 	{
-		long long res = 1;
+		int64_t res = 1;
 		base %= mod;
 		while (exp > 0)
 		{
@@ -84,26 +84,26 @@ private:
 
 public:
 	static int GetCoprimeCount(int n);
-	static long long GetLcm(long long a, long long b);
-	static long long GetGcd(long long a, long long b);
-	static long long GetGcd(long long m, long long n, long long &a, long long &b);
+	static int64_t GetLcm(int64_t a, int64_t b);
+	static int64_t GetGcd(int64_t a, int64_t b);
+	static int64_t GetGcd(int64_t m, int64_t n, int64_t &a, int64_t &b);
 
-	static std::vector<long long> TrialDivisionFactor(long long n, const std::vector<long long> &primes);
-	static std::map<long long, int> Factorize(long long n, const std::vector<long long> &primes);
+	static std::vector<int64_t> TrialDivisionFactor(int64_t n, const std::vector<int64_t> &primes);
+	static std::map<int64_t, int> Factorize(int64_t n, const std::vector<int64_t> &primes);
 
-	static long long GetCombinationsCount(long long total, long long pickedCount);
+	static int64_t GetCombinationsCount(int64_t total, int64_t pickedCount);
 	static bool IsPandigital(const std::vector<int> &numbers);
 	static bool IsPandigital(int y);
 	static bool IsPandigital(const std::string &s, bool canContainsZero);
-	static int DigitSum(long long number);
+	static int DigitSum(int64_t number);
 
-	static std::vector<long long> GenPrimeSieve(long long end);
-	static std::vector<long long> GenPrimes(long long end); // no zero
+	static std::vector<int64_t> GenPrimeSieve(int64_t end);
+	static std::vector<int64_t> GenPrimes(int64_t end); // no zero
 
-	static long long Factorial(long long i);
+	static int64_t Factorial(int64_t i);
 	static bool IsPalindrome(const std::string &s);
-	static bool IsPrime(long long number, const std::vector<long long> &primes);
-	static bool IsPrime(long long number);
+	static bool IsPrime(int64_t number, const std::vector<int64_t> &primes);
+	static bool IsPrime(int64_t number);
 
 	// Permutations
 	template<typename T>
@@ -119,12 +119,12 @@ public:
 		return result;
 	}
 
-	static bool IsPermutation(long long x, long long y);
-	static long long Reverse(long long x);
+	static bool IsPermutation(int64_t x, int64_t y);
+	static int64_t Reverse(int64_t x);
 
 private:
-	static void Factorize(long long n, const std::vector<long long> &primes, std::vector<long long> &factors);
-	static long long PollardRho(long long n);
+	static void Factorize(int64_t n, const std::vector<int64_t> &primes, std::vector<int64_t> &factors);
+	static int64_t PollardRho(int64_t n);
 };
 
 } // namespace ProjectEuler

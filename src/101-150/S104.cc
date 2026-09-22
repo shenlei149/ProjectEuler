@@ -11,16 +11,16 @@ namespace ProjectEuler
 {
 std::string S104::GetAnswer()
 {
-	long long mod = 1000000000;
-	long long f1 = 1;
-	long long f2 = 1;
-	long long fn = 0;
+	int64_t mod = 1000000000;
+	int64_t f1 = 1;
+	int64_t f2 = 1;
+	int64_t fn = 0;
 	int k = 3;
 
 	double logPhi = std::log10((1.0 + std::sqrt(5.0)) / 2.0);
 	double logSqrt5 = std::log10(5.0) / 2.0;
 
-	auto IsPandigital1To9 = [](long long n) -> bool
+	auto IsPandigital1To9 = [](int64_t n) -> bool
 	{
 		if (n < 100000000)
 		{
@@ -56,7 +56,7 @@ std::string S104::GetAnswer()
 			// Check first 9 digits
 			double t = k * logPhi - logSqrt5;
 			double fractional = t - std::floor(t);
-			long long first9 = (long long)std::pow(10, fractional + 8);
+			int64_t first9 = (int64_t)std::pow(10, fractional + 8);
 
 			if (IsPandigital1To9(first9))
 			{

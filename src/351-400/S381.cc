@@ -11,13 +11,13 @@ namespace ProjectEuler
 {
 // Modular Inverse for Prime Modulo p
 // a^(p-2) = a^-1 (Fermat's Little Theorem)
-long long modInverse(long long n, long long mod) { return Utils::Pow(n, (long long)(mod - 2), mod); }
+int64_t modInverse(int64_t n, int64_t mod) { return Utils::Pow(n, (int64_t)(mod - 2), mod); }
 
 // Or Extended Euclidean
-long long modInverseEuclid(long long a, long long m)
+int64_t modInverseEuclid(int64_t a, int64_t m)
 {
-	long long m0 = m, t, q;
-	long long x0 = 0, x1 = 1;
+	int64_t m0 = m, t, q;
+	int64_t x0 = 0, x1 = 1;
 	if (m == 1)
 	{
 		return 0;
@@ -40,12 +40,12 @@ long long modInverseEuclid(long long a, long long m)
 
 std::string S381::GetAnswer()
 {
-	long long MAX = 100000000; // 10^8
+	int64_t MAX = 100000000; // 10^8
 	auto primes = Utils::GenPrimes(MAX);
 
-	long long totalSum = 0;
+	int64_t totalSum = 0;
 
-	for (long long p : primes)
+	for (int64_t p : primes)
 	{
 		if (p < 5)
 		{
@@ -60,22 +60,22 @@ std::string S381::GetAnswer()
 		// (p-5)! = (p-4)! / (p-4) = ((1-p)/6) / (-4) = (p-1)/24
 
 		// Let's compute iteratively using modular inverse.
-		long long s1 = p - 1; // -1
-		long long s2 = 1;
-		long long s3 = (p - 1) / 2; // (p-1) is even for p >= 5
+		int64_t s1 = p - 1; // -1
+		int64_t s2 = 1;
+		int64_t s3 = (p - 1) / 2; // (p-1) is even for p >= 5
 
 		// s4 = s3 * inv(-3)
 		// inv(-3) = inv(p-3)
 		// Using Fermat: pow(p-3, p-2, p)
 		// But Euclid is faster usually.
 
-		long long inv3 = modInverseEuclid(p - 3, p);
-		long long s4 = (s3 * inv3) % p;
+		int64_t inv3 = modInverseEuclid(p - 3, p);
+		int64_t s4 = (s3 * inv3) % p;
 
-		long long inv4 = modInverseEuclid(p - 4, p);
-		long long s5 = (s4 * inv4) % p;
+		int64_t inv4 = modInverseEuclid(p - 4, p);
+		int64_t s5 = (s4 * inv4) % p;
 
-		long long sumP = (s1 + s2 + s3 + s4 + s5) % p;
+		int64_t sumP = (s1 + s2 + s3 + s4 + s5) % p;
 		totalSum += sumP;
 	}
 

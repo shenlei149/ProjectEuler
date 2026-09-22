@@ -80,8 +80,8 @@ std::string S102::GetAnswer()
 
 bool S102::IsSameSide(int Ax, int Ay, int Bx, int By, int Cx, int Cy, int Ox, int Oy)
 {
-	long long cp1 = (long long)(Bx - Ax) * (Cy - Ay) - (long long)(By - Ay) * (Cx - Ax);
-	long long cp2 = (long long)(Bx - Ax) * (Oy - Ay) - (long long)(By - Ay) * (Ox - Ax);
+	int64_t cp1 = (int64_t)(Bx - Ax) * (Cy - Ay) - (int64_t)(By - Ay) * (Cx - Ax);
+	int64_t cp2 = (int64_t)(Bx - Ax) * (Oy - Ay) - (int64_t)(By - Ay) * (Ox - Ax);
 	// If both cross products have the same sign
 	return (cp1 * cp2) >= 0;
 }

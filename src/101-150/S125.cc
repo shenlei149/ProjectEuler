@@ -12,17 +12,17 @@ namespace ProjectEuler
 {
 std::string S125::GetAnswer()
 {
-	long long limit = 100000000;
+	int64_t limit = 100000000;
 	int sqrt_limit = (int)std::sqrt(limit);
 
-	std::set<long long> valid_sums;
+	std::set<int64_t> valid_sums;
 
 	for (int i = 1; i <= sqrt_limit; ++i)
 	{
-		long long current_sum = (long long)i * i;
+		int64_t current_sum = (int64_t)i * i;
 		for (int j = i + 1; j <= sqrt_limit; ++j)
 		{
-			current_sum += (long long)j * j;
+			current_sum += (int64_t)j * j;
 			if (current_sum >= limit)
 			{
 				break;
@@ -35,8 +35,8 @@ std::string S125::GetAnswer()
 		}
 	}
 
-	long long total = 0;
-	for (long long s : valid_sums)
+	int64_t total = 0;
+	for (int64_t s : valid_sums)
 	{
 		total += s;
 	}

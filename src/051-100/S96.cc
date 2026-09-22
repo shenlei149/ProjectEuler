@@ -10,7 +10,7 @@ std::string S96::GetAnswer()
 {
 	std::stringstream ss(content);
 	std::string token;
-	long long sum = 0;
+	int64_t sum = 0;
 
 	while (ss >> token)
 	{

@@ -10,10 +10,10 @@ namespace ProjectEuler
 {
 std::string S719::GetAnswer()
 {
-	long long N = 1000000000000LL;	// 10^12
-	long long root_limit = 1000000; // sqrt(10^12)
+	int64_t N = 1000000000000LL;	// 10^12
+	int64_t root_limit = 1000000; // sqrt(10^12)
 
-	long long sum = 0;
+	int64_t sum = 0;
 
 	// Start from 4 (root=2, sq=4)
 	// 1, 4, 9 cannot be split into 2+ parts to sum to root?
@@ -24,9 +24,9 @@ std::string S719::GetAnswer()
 	// Actually root=3, sq=9 < 10.
 	// So root starts higher.
 
-	for (long long root = 2; root <= root_limit; ++root)
+	for (int64_t root = 2; root <= root_limit; ++root)
 	{
-		long long n = root * root;
+		int64_t n = root * root;
 		if (CanBeSplit(n, root))
 		{
 			sum += n;
@@ -36,7 +36,7 @@ std::string S719::GetAnswer()
 	return std::to_string(sum);
 }
 
-bool S719::CanBeSplit(long long n, long long target)
+bool S719::CanBeSplit(int64_t n, int64_t target)
 {
 	// Recursive check if decimal representation of n can sum to target.
 	// n is current number to split.
@@ -65,11 +65,11 @@ bool S719::CanBeSplit(long long n, long long target)
 
 	// Try splitting last k digits
 	// n % 10, n % 100, etc.
-	long long mod = 10;
+	int64_t mod = 10;
 	while (mod <= n)
 	{
-		long long part = n % mod;
-		long long rest = n / mod;
+		int64_t part = n % mod;
+		int64_t rest = n / mod;
 
 		if (part <= target && CanBeSplit(rest, target - part))
 		{

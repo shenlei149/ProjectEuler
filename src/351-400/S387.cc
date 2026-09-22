@@ -10,12 +10,12 @@ using namespace std;
 namespace ProjectEuler
 {
 // Helper function to check if n is prime
-static bool IsPrime(long long n);
+static bool IsPrime(int64_t n);
 
-static void GenerateRTHN(long long current, int digitSum, long long LIMIT_P, long long &totalSum);
+static void GenerateRTHN(int64_t current, int digitSum, int64_t LIMIT_P, int64_t &totalSum);
 
 // Implementation
-static bool IsPrime(long long n)
+static bool IsPrime(int64_t n)
 {
 	if (n <= 1)
 	{
@@ -29,7 +29,7 @@ static bool IsPrime(long long n)
 	{
 		return false;
 	}
-	for (long long i = 5; i * i <= n; i = i + 6)
+	for (int64_t i = 5; i * i <= n; i = i + 6)
 	{
 		if (n % i == 0 || n % (i + 2) == 0)
 		{
@@ -39,7 +39,7 @@ static bool IsPrime(long long n)
 	return true;
 }
 
-static void GenerateRTHN(long long current, int digitSum, long long LIMIT_P, long long &totalSum)
+static void GenerateRTHN(int64_t current, int digitSum, int64_t LIMIT_P, int64_t &totalSum)
 {
 	// current is RTHN by construction.
 
@@ -49,7 +49,7 @@ static void GenerateRTHN(long long current, int digitSum, long long LIMIT_P, lon
 		// Try to form P = current * 10 + d
 		for (int d : { 1, 3, 7, 9 })
 		{
-			long long p = current * 10 + d;
+			int64_t p = current * 10 + d;
 			if (p >= LIMIT_P)
 			{
 				continue;
@@ -70,7 +70,7 @@ static void GenerateRTHN(long long current, int digitSum, long long LIMIT_P, lon
 
 	for (int k = 0; k <= 9; ++k)
 	{
-		long long next = current * 10 + k;
+		int64_t next = current * 10 + k;
 		int nextSum = digitSum + k;
 		if (next % nextSum == 0)
 		{
@@ -81,8 +81,8 @@ static void GenerateRTHN(long long current, int digitSum, long long LIMIT_P, lon
 
 std::string S387::GetAnswer()
 {
-	long long LIMIT = 100000000000000LL;
-	long long sum = 0;
+	int64_t LIMIT = 100000000000000LL;
+	int64_t sum = 0;
 
 	for (int i = 1; i <= 9; ++i)
 	{

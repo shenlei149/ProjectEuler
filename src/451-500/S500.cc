@@ -14,7 +14,7 @@ std::string S500::GetAnswer()
 {
 	// Target: 500500 factors. 2^500500.
 	int target = 500500;
-	long long MOD = 500500507;
+	int64_t MOD = 500500507;
 
 	// We need ~500500 cheapest factors.
 	// Costs are p, p^2, p^4, p^8...
@@ -22,12 +22,12 @@ std::string S500::GetAnswer()
 	int limit = 8000000;
 	auto primes = Utils::GenPrimes(limit);
 
-	std::vector<long long> costs;
+	std::vector<int64_t> costs;
 	costs.reserve(primes.size() + 1000);
 
-	for (long long p : primes)
+	for (int64_t p : primes)
 	{
-		long long cost = p;
+		int64_t cost = p;
 		costs.push_back(cost);
 
 		// Only need to add higher powers if they are small enough
@@ -48,7 +48,7 @@ std::string S500::GetAnswer()
 	// Find smallest target elements
 	std::nth_element(costs.begin(), costs.begin() + target, costs.end());
 
-	long long ans = 1;
+	int64_t ans = 1;
 	for (int i = 0; i < target; ++i)
 	{
 		ans = (ans * (costs[i] % MOD)) % MOD;

@@ -50,7 +50,7 @@ std::string S43::GetAnswer()
 		pandigitals = next_pandigitals;
 	}
 
-	long long sum = 0;
+	int64_t sum = 0;
 	for (const auto &s : pandigitals)
 	{
 		for (char c = '0'; c <= '9'; ++c)

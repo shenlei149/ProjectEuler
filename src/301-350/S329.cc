@@ -15,7 +15,7 @@ std::string S329::GetAnswer()
 	// Precompute primality up to 500
 	vector<bool> is_prime(501, false);
 	auto primes_vec = Utils::GenPrimes(500);
-	for (long long p : primes_vec)
+	for (int64_t p : primes_vec)
 	{
 		if (p <= 500)
 		{
@@ -25,8 +25,8 @@ std::string S329::GetAnswer()
 
 	// dp[pos] stores numerator for position `pos`.
 	// Common denominator D for all positions.
-	vector<long long> dp(501, 1);
-	long long D = 1;
+	vector<int64_t> dp(501, 1);
+	int64_t D = 1;
 
 	for (int k = 0; k < 15; ++k)
 	{
@@ -40,7 +40,7 @@ std::string S329::GetAnswer()
 			// If prime: P('P')=2/3, P('N')=1/3
 			// If composite: P('P')=1/3, P('N')=2/3
 
-			long long num = 0;
+			int64_t num = 0;
 			if (prime)
 			{
 				num = (croak == 'P' ? 2 : 1);
@@ -57,7 +57,7 @@ std::string S329::GetAnswer()
 
 		if (k < 14) // Jump
 		{
-			vector<long long> next_dp(501, 0);
+			vector<int64_t> next_dp(501, 0);
 			for (int pos = 1; pos <= 500; ++pos)
 			{
 				// Jumps
@@ -87,7 +87,7 @@ std::string S329::GetAnswer()
 		}
 	}
 
-	long long sum_dp = 0;
+	int64_t sum_dp = 0;
 	for (int pos = 1; pos <= 500; ++pos)
 	{
 		sum_dp += dp[pos];
@@ -96,8 +96,8 @@ std::string S329::GetAnswer()
 	// Total Probability = (sum_dp / D) / 500
 	// = sum_dp / (D * 500)
 
-	long long total_denom = D * 500;
-	long long gcd = Utils::GetGcd(sum_dp, total_denom);
+	int64_t total_denom = D * 500;
+	int64_t gcd = Utils::GetGcd(sum_dp, total_denom);
 
 	stringstream ss;
 	ss << (sum_dp / gcd) << "/" << (total_denom / gcd);

@@ -13,7 +13,7 @@ class S118 : public ISolution
 public:
 	std::string GetAnswer() override;
 	void GenSets(const std::vector<int> &elements, int length, int lastLength, int &count);
-	void GenPrimes(int value, int length, const std::vector<long long> &primes);
+	void GenPrimes(int value, int length, const std::vector<int64_t> &primes);
 
 private:
 	std::vector<std::vector<int>> unique;

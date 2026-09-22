@@ -7,10 +7,10 @@ namespace ProjectEuler
 {
 std::string S94::GetAnswer()
 {
-	long long perimeters = 0;
-	for (long long a = 3; a <= 333333333; a += 2)
+	int64_t perimeters = 0;
+	for (int64_t a = 3; a <= 333333333; a += 2)
 	{
-		long long c = a + 1;
+		int64_t c = a + 1;
 		if (Meet(a, c))
 		{
 			perimeters += 2 * a + c;
@@ -27,13 +27,13 @@ std::string S94::GetAnswer()
 	return std::to_string(perimeters);
 }
 
-bool S94::Meet(long long a, long long c)
+bool S94::Meet(int64_t a, int64_t c)
 {
-	long long half = c >> 1;
-	long long hsquare = half * half;
-	long long asquare = a * a;
-	long long height = (long long)std::sqrt(asquare - hsquare);
-	long long htsquare = height * height;
+	int64_t half = c >> 1;
+	int64_t hsquare = half * half;
+	int64_t asquare = a * a;
+	int64_t height = (int64_t)std::sqrt(asquare - hsquare);
+	int64_t htsquare = height * height;
 	return asquare == htsquare + hsquare;
 }
 

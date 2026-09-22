@@ -9,17 +9,17 @@ using namespace std;
 
 namespace ProjectEuler
 {
-long long MOD = 4294967296LL; // 2^32
+int64_t MOD = 4294967296LL; // 2^32
 
 // Helper: Generate 5-smooth numbers
-void GenerateSmooths(std::vector<long long> &smooths, long long limit)
+void GenerateSmooths(std::vector<int64_t> &smooths, int64_t limit)
 {
 	smooths.clear();
-	for (long long i = 1;;)
+	for (int64_t i = 1;;)
 	{
-		for (long long j = i;;)
+		for (int64_t j = i;;)
 		{
-			for (long long k = j;;)
+			for (int64_t k = j;;)
 			{
 				smooths.push_back(k);
 				if (limit / 5 < k)
@@ -44,32 +44,32 @@ void GenerateSmooths(std::vector<long long> &smooths, long long limit)
 
 // Recursive search for subsets of special primes
 void FindSubsets(int index,
-				 long long currentProduct,
-				 const std::vector<long long> &specialPrimes,
-				 const std::vector<long long> &smooths,
-				 const std::vector<long long> &smoothSums,
-				 long long MAX,
-				 long long &totalSum)
+				 int64_t currentProduct,
+				 const std::vector<int64_t> &specialPrimes,
+				 const std::vector<int64_t> &smooths,
+				 const std::vector<int64_t> &smoothSums,
+				 int64_t MAX,
+				 int64_t &totalSum)
 {
 	// For currentProduct P, we want sum of (P * s) % MOD for all s in smooths with P*s <= MAX.
 	// s <= MAX / P.
 	// Find largest s <= MAX / P.
 
 	auto it = std::upper_bound(smooths.begin(), smooths.end(), MAX / currentProduct);
-	long long count = std::distance(smooths.begin(), it);
+	int64_t count = std::distance(smooths.begin(), it);
 
 	// Sum of smooths[0...count-1]
 	if (count > 0)
 	{
-		long long sSum = smoothSums[count]; // Sum is mod MOD
-		long long term = ((currentProduct % MOD) * sSum) % MOD;
+		int64_t sSum = smoothSums[count]; // Sum is mod MOD
+		int64_t term = ((currentProduct % MOD) * sSum) % MOD;
 		totalSum = (totalSum + term) % MOD;
 	}
 
 	// Recurse
 	for (size_t i = index; i < specialPrimes.size(); ++i)
 	{
-		long long p = specialPrimes[i];
+		int64_t p = specialPrimes[i];
 
 		if (MAX / p < currentProduct)
 		{
@@ -83,21 +83,21 @@ void FindSubsets(int index,
 
 std::string S516::GetAnswer()
 {
-	long long MAX = 1000000000000LL; // 10^12
+	int64_t MAX = 1000000000000LL; // 10^12
 
-	std::vector<long long> smooths;
+	std::vector<int64_t> smooths;
 	GenerateSmooths(smooths, MAX);
 	std::sort(smooths.begin(), smooths.end());
 
 	// Special primes p > 5 such that p-1 is 5-smooth
-	std::vector<long long> specialPrimes;
-	for (long long s : smooths)
+	std::vector<int64_t> specialPrimes;
+	for (int64_t s : smooths)
 	{
 		if (s + 1 > MAX)
 		{
 			continue;
 		}
-		long long p = s + 1;
+		int64_t p = s + 1;
 		if (p <= 5)
 		{
 			continue;
@@ -110,13 +110,13 @@ std::string S516::GetAnswer()
 	std::sort(specialPrimes.begin(), specialPrimes.end());
 
 	// Precompute prefix sums of smooths
-	std::vector<long long> smoothSums(smooths.size() + 1, 0);
+	std::vector<int64_t> smoothSums(smooths.size() + 1, 0);
 	for (size_t i = 0; i < smooths.size(); ++i)
 	{
 		smoothSums[i + 1] = (smoothSums[i] + (smooths[i] % MOD)) % MOD;
 	}
 
-	long long totalSum = 0;
+	int64_t totalSum = 0;
 
 	FindSubsets(0, 1, specialPrimes, smooths, smoothSums, MAX, totalSum);
 

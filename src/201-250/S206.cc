@@ -7,7 +7,7 @@ namespace ProjectEuler
 {
 std::string S206::GetAnswer()
 {
-	for (long long i = 100000003;;)
+	for (int64_t i = 100000003;;)
 	{
 		if (HasRightForm(i))
 		{
@@ -25,7 +25,7 @@ std::string S206::GetAnswer()
 	}
 }
 
-bool S206::HasRightForm(long long i)
+bool S206::HasRightForm(int64_t i)
 {
 	std::string s = std::to_string(i * i);
 	return s[2] == '2' && s[4] == '3' && s[6] == '4' && s[8] == '5' && s[10] == '6' && s[12] == '7' && s[14] == '8';

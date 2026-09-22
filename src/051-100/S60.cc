@@ -11,9 +11,9 @@ using namespace std;
 namespace ProjectEuler
 {
 
-bool S60::IsPrime(long long n) { return Utils::IsPrime(n); }
+bool S60::IsPrime(int64_t n) { return Utils::IsPrime(n); }
 
-bool S60::Check(long long a, long long b)
+bool S60::Check(int64_t a, int64_t b)
 {
 	string sa = to_string(a);
 	string sb = to_string(b);

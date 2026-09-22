@@ -12,7 +12,7 @@ namespace ProjectEuler
 
 std::string S32::GetAnswer()
 {
-	long long sum = 0;
+	int64_t sum = 0;
 	// digits 1-9
 	const std::string all_digits = "123456789";
 

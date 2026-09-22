@@ -64,11 +64,11 @@ std::string S98::GetAnswer()
 	}
 
 	// Precompute squares
-	std::map<int, std::vector<long long>> squares_by_len;
-	long long n = 1;
+	std::map<int, std::vector<int64_t>> squares_by_len;
+	int64_t n = 1;
 	while (true)
 	{
-		long long sq = n * n;
+		int64_t sq = n * n;
 		std::string s = std::to_string(sq);
 		if (s.length() > max_len)
 		{
@@ -78,7 +78,7 @@ std::string S98::GetAnswer()
 		n++;
 	}
 
-	long long max_square = 0;
+	int64_t max_square = 0;
 
 	for (const auto &p : pairs)
 	{
@@ -88,7 +88,7 @@ std::string S98::GetAnswer()
 
 		const auto &candidates = squares_by_len[len];
 
-		for (long long sq : candidates)
+		for (int64_t sq : candidates)
 		{
 			std::string s_sq = std::to_string(sq);
 
@@ -125,7 +125,7 @@ std::string S98::GetAnswer()
 			if (possible)
 			{
 				// Check w2
-				long long num2 = 0;
+				int64_t num2 = 0;
 				// Avoid leading zero for num2? Problem implies square number.
 				// 1296 (CARE) -> RACE (9216).
 				// If mapping results in leading zero, length decreases?
@@ -142,7 +142,7 @@ std::string S98::GetAnswer()
 				}
 
 				// Check if num2 is square
-				long long root = round(sqrt(num2));
+				int64_t root = round(sqrt(num2));
 				if (root * root == num2)
 				{
 					// Check length (no leading zeros meant num2 has same length)

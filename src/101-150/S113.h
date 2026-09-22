@@ -12,8 +12,8 @@ class S113 : public ISolution
 {
 public:
 	std::string GetAnswer() override;
-	long long GetDecreasingCount();
-	long long GetIncreasingCount();
+	int64_t GetDecreasingCount();
+	int64_t GetIncreasingCount();
 
 private:
 	int Power = 100;

@@ -14,10 +14,10 @@ BigInt S66::GetX(int D)
 		return BigInt(0);
 	}
 
-	long long m_int = 0;
-	long long d_int = 1;
-	long long a0_int = limit;
-	long long a_int = limit;
+	int64_t m_int = 0;
+	int64_t d_int = 1;
+	int64_t a0_int = limit;
+	int64_t a_int = limit;
 
 	BigInt h_prev2(0);
 	BigInt h_prev(1);

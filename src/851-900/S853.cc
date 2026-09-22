@@ -9,14 +9,14 @@ namespace ProjectEuler
 {
 std::string S853::GetAnswer()
 {
-	long long sum = 0;
+	int64_t sum = 0;
 
 	// Initial power all 0.
 	std::vector<int> power(bases.size(), 0);
 
 	while (true)
 	{
-		long long n = 0;
+		int64_t n = 0;
 		if (!Next(power, n))
 		{
 			break;
@@ -33,9 +33,9 @@ std::string S853::GetAnswer()
 	return std::to_string(sum);
 }
 
-long long S853::ToLong(const std::vector<int> &power)
+int64_t S853::ToLong(const std::vector<int> &power)
 {
-	long long p = 1;
+	int64_t p = 1;
 	for (size_t i = 0; i < power.size(); i++)
 	{
 		for (int j = 0; j < power[i]; j++)
@@ -46,7 +46,7 @@ long long S853::ToLong(const std::vector<int> &power)
 	return p;
 }
 
-bool S853::Next(std::vector<int> &power, long long &n)
+bool S853::Next(std::vector<int> &power, int64_t &n)
 {
 	// Increment power like a number system
 	// But limits are dynamic (product < N).
@@ -89,7 +89,7 @@ bool S853::Next(std::vector<int> &power, long long &n)
 	return false;
 }
 
-bool S853::Period120(long long n)
+bool S853::Period120(int64_t n)
 {
 	if (n <= 2)
 	{
@@ -120,10 +120,10 @@ bool S853::Period120(long long n)
 	// F(120) mod n.
 	// We can compute fast doubling or just loop since 120 is small.
 
-	long long a = 0, b = 1;
+	int64_t a = 0, b = 1;
 	for (int i = 2; i <= 121; i++)
 	{
-		long long c = (a + b) % n;
+		int64_t c = (a + b) % n;
 		a = b;
 		b = c;
 		// a is F(i-1), b is F(i).
@@ -146,13 +146,13 @@ bool S853::Period120(long long n)
 	int checks[] = { 60, 40, 24 };
 	for (int k : checks)
 	{
-		long long fk = 0, fk1 = 1;
+		int64_t fk = 0, fk1 = 1;
 		// Compute F(k), F(k+1)
 		// Loop or fast doubling. Loop is fine.
-		long long x = 0, y = 1;
+		int64_t x = 0, y = 1;
 		for (int j = 2; j <= k + 1; ++j)
 		{
-			long long z = (x + y) % n;
+			int64_t z = (x + y) % n;
 			x = y;
 			y = z;
 		}

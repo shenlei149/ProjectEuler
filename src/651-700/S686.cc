@@ -46,7 +46,7 @@ std::string S686::GetAnswer()
 	// j * log2 mod 1.
 	// We can maintain `curr = j * log2`.
 
-	long long j = 0;
+	int64_t j = 0;
 	// Optimization: Start from j=0?
 	// Problem asks for n=678910.
 

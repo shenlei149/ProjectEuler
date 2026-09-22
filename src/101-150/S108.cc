@@ -14,15 +14,15 @@ std::string S108::GetAnswer()
 	return std::to_string(min_n);
 }
 
-void S108::Search(int index, long long current_n, long long count, int limit, int max_exponent)
+void S108::Search(int index, int64_t current_n, int64_t count, int limit, int max_exponent)
 {
 	if (index >= (int)primes.size())
 	{
 		return;
 	}
 
-	long long p = primes[index];
-	long long next_n = current_n;
+	int64_t p = primes[index];
+	int64_t next_n = current_n;
 
 	// a is exponent
 	for (int a = 1; a <= max_exponent; a++)
@@ -33,7 +33,7 @@ void S108::Search(int index, long long current_n, long long count, int limit, in
 		}
 		next_n *= p;
 
-		long long next_count = count * (2 * a + 1);
+		int64_t next_count = count * (2 * a + 1);
 
 		if (next_count > 2 * limit - 1)
 		{

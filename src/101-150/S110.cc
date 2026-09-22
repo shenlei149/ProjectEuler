@@ -29,13 +29,13 @@ void S110::Check(std::vector<int> power, int index)
 {
 	if (index == Primes.size())
 	{
-		long long count = 1;
+		int64_t count = 1;
 		for (int item : power)
 		{
 			count *= (1 + item * 2);
 		}
 
-		long long solutions = (count + 1) / 2;
+		int64_t solutions = (count + 1) / 2;
 
 		if (solutions > MAX)
 		{

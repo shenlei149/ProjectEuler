@@ -36,7 +36,7 @@ std::string S22::GetAnswer()
 
 	std::sort(names.begin(), names.end());
 
-	long long total = 0;
+	int64_t total = 0;
 	for (size_t i = 0; i < names.size(); i++)
 	{
 		total += GetStringScore(names[i]) * (i + 1);

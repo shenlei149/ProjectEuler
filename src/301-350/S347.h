@@ -14,6 +14,6 @@ public:
 	std::string GetAnswer() override;
 
 private:
-	long long GetM(long long p, long long q, long long MAX);
+	int64_t GetM(int64_t p, int64_t q, int64_t MAX);
 };
 } // namespace ProjectEuler

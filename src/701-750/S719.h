@@ -10,6 +10,6 @@ public:
 	std::string GetAnswer() override;
 
 private:
-	bool CanBeSplit(long long n, long long target);
+	bool CanBeSplit(int64_t n, int64_t target);
 };
 } // namespace ProjectEuler

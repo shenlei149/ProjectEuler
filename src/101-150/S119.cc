@@ -12,8 +12,8 @@ namespace ProjectEuler
 {
 std::string S119::GetAnswer()
 {
-	std::vector<long long> candidates;
-	long long maxVal = LLONG_MAX;
+	std::vector<int64_t> candidates;
+	int64_t maxVal = LLONG_MAX;
 	for (int i = 2; i < 9 * std::to_string(maxVal).size(); i++)
 	{
 		int power = 2;
@@ -25,8 +25,8 @@ std::string S119::GetAnswer()
 				break;
 			}
 
-			long long number = std::stoll(ret.toString());
-			long long sum = Utils::DigitSum(number);
+			int64_t number = std::stoll(ret.toString());
+			int64_t sum = Utils::DigitSum(number);
 			if (sum == i)
 			{
 				candidates.push_back(number);

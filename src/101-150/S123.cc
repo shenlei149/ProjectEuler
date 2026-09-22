@@ -15,7 +15,7 @@ std::string S123::GetAnswer()
 	auto primes = Utils::GenPrimes(1000000); // Should be plenty.
 	// Remove p=0/1 artifacts if GenPrimes returns index based array or use GenPrimes returning vector.
 	// GenPrimes returns vector of primes or bool array?
-	// Looking at S124 usage: Utils::GenPrimes(100001) returns long long[].
+	// Looking at S124 usage: Utils::GenPrimes(100001) returns int64_t[].
 	// Looking at S10.cc or Utils.h...
 	// Let's check Utils.h first.
 
@@ -25,7 +25,7 @@ std::string S123::GetAnswer()
 	// We need 1-based index n. p_n is primes[n-1].
 
 	// Start search from n = 7037 (odd).
-	long long n = 7037;
+	int64_t n = 7037;
 	// Ensure we have enough primes.
 	if (primes.size() < n)
 	{
@@ -34,8 +34,8 @@ std::string S123::GetAnswer()
 
 	for (; n <= primes.size(); n += 2)
 	{
-		long long p = primes[n - 1];
-		long long r = (2 * n * p) % (p * p); // r = 2np mod p^2
+		int64_t p = primes[n - 1];
+		int64_t r = (2 * n * p) % (p * p); // r = 2np mod p^2
 
 		if (r > 10000000000LL)
 		{

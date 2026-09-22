@@ -8,7 +8,7 @@ namespace ProjectEuler
 std::string S50::GetAnswer()
 {
 	int maxCount = 0;
-	long long maxPrime = 0;
+	int64_t maxPrime = 0;
 	auto primes = Utils::GenPrimeSieve(MAX);
 
 	for (int i = 0; i < primes.size(); i++)
@@ -18,7 +18,7 @@ std::string S50::GetAnswer()
 			continue;
 		}
 
-		long long sum = 0;
+		int64_t sum = 0;
 		int count = 0;
 		for (int j = i; j < primes.size(); j++)
 		{

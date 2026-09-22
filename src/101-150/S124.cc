@@ -10,8 +10,8 @@ namespace ProjectEuler
 {
 struct NAndRadN
 {
-	long long N;
-	long long Rad;
+	int64_t N;
+	int64_t Rad;
 
 	// Define < operator for sorting
 	bool operator<(const NAndRadN &other) const
@@ -27,7 +27,7 @@ struct NAndRadN
 std::string S124::GetAnswer()
 {
 	int limit = 100000;
-	std::vector<long long> rad(limit + 1, 1);
+	std::vector<int64_t> rad(limit + 1, 1);
 
 	// Sieve radicals
 	for (int i = 2; i <= limit; i++)
@@ -46,7 +46,7 @@ std::string S124::GetAnswer()
 
 	for (int i = 1; i <= limit; i++)
 	{
-		results.push_back({ (long long)i, rad[i] });
+		results.push_back({ (int64_t)i, rad[i] });
 	}
 
 	// 0-based index. We want E(10000). Index 9999.

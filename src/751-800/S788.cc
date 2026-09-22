@@ -16,7 +16,7 @@ std::string S788::GetAnswer()
 		Power9[i] = (Power9[i - 1] * 9) % Mod;
 	}
 
-	cache.assign(MaxD + 1, std::vector<long long>(MaxD + 1, 0));
+	cache.assign(MaxD + 1, std::vector<int64_t>(MaxD + 1, 0));
 
 	// Cache initialization?
 	// Logic from code:
@@ -32,7 +32,7 @@ std::string S788::GetAnswer()
 	// But the cache initialization might be an optimization or base cases.
 	// I'll implement recursive function with memoization, and let it fill.
 
-	long long sum = 0;
+	int64_t sum = 0;
 	for (int i = 1; i <= MaxD; i++)
 	{
 		sum = (sum + Count(i)) % Mod;
@@ -41,9 +41,9 @@ std::string S788::GetAnswer()
 	return std::to_string(sum);
 }
 
-long long S788::Count(int D)
+int64_t S788::Count(int D)
 {
-	long long count = 0;
+	int64_t count = 0;
 	int start = (D % 2 == 0) ? (D / 2 + 1) : ((D + 1) / 2);
 
 	for (int i = start; i <= D; i++)
@@ -84,7 +84,7 @@ long long S788::Count(int D)
 		// Total ways: 9 * Comb(D-1, i) * 9^(D-1-i) = Comb(D-1, i) * 9^(D-i).
 		// This matches the code logic exactly!
 
-		long long ways0 = GetCombinationsCountWithCache(D - 1, i);
+		int64_t ways0 = GetCombinationsCountWithCache(D - 1, i);
 		int remain = D - i;
 		ways0 = (ways0 * Power9[remain]) % Mod;
 		count = (count + ways0) % Mod;
@@ -99,7 +99,7 @@ long long S788::Count(int D)
 		// 9^(D-i).
 		// Multiply by 9 (for d=1..9).
 
-		long long ways_d_first = GetCombinationsCountWithCache(D - 1, i - 1);
+		int64_t ways_d_first = GetCombinationsCountWithCache(D - 1, i - 1);
 		ways_d_first = (ways_d_first * Power9[D - i]) % Mod;
 		ways_d_first = (ways_d_first * 9) % Mod;
 		count = (count + ways_d_first) % Mod;
@@ -116,7 +116,7 @@ long long S788::Count(int D)
 		int remain2 = D - i - 1;
 		if (remain2 >= 0)
 		{
-			long long ways_d_not_first = GetCombinationsCountWithCache(D - 1, i);
+			int64_t ways_d_not_first = GetCombinationsCountWithCache(D - 1, i);
 			ways_d_not_first = (ways_d_not_first * Power9[remain2]) % Mod;
 			ways_d_not_first = (ways_d_not_first * 8) % Mod;
 			ways_d_not_first = (ways_d_not_first * 9) % Mod;
@@ -126,7 +126,7 @@ long long S788::Count(int D)
 	return count;
 }
 
-long long S788::GetCombinationsCountWithCache(long long n, long long k)
+int64_t S788::GetCombinationsCountWithCache(int64_t n, int64_t k)
 {
 	if (k < 0 || k > n)
 	{
@@ -146,7 +146,7 @@ long long S788::GetCombinationsCountWithCache(long long n, long long k)
 		return cache[n][k];
 	}
 
-	long long res = (GetCombinationsCountWithCache(n - 1, k) + GetCombinationsCountWithCache(n - 1, k - 1)) % Mod;
+	int64_t res = (GetCombinationsCountWithCache(n - 1, k) + GetCombinationsCountWithCache(n - 1, k - 1)) % Mod;
 	cache[n][k] = res;
 	return res;
 }

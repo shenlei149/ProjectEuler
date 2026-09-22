@@ -12,6 +12,6 @@ class S601 : public ISolution
 {
 public:
 	std::string GetAnswer() override;
-	long long P(int s, long long N);
+	int64_t P(int s, int64_t N);
 };
 } // namespace ProjectEuler

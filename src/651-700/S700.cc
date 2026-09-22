@@ -8,13 +8,13 @@ namespace ProjectEuler
 {
 std::string S700::GetAnswer()
 {
-	long long second = 1504170715041707LL;
-	long long first = 8912517754604LL; // Assuming these are correct starting values
+	int64_t second = 1504170715041707LL;
+	int64_t first = 8912517754604LL; // Assuming these are correct starting values
 	// Actually 1504170715041707 is the modular multiplicative inverse of something?
 	// EulerCoin: 1504170715041707 * n mod 4503599627370517.
 	// It's finding new minimums.
 
-	long long sum = second + first; // Initial sum
+	int64_t sum = second + first; // Initial sum
 
 	// This is Euclidean algorithm like steps.
 	// next = first - second % first?
@@ -40,7 +40,7 @@ std::string S700::GetAnswer()
 
 	while (true)
 	{
-		long long next = first - (second % first);
+		int64_t next = first - (second % first);
 		// Wait, logic check:
 		// if next == first, then second%first = 0.
 		// Then loop likely stuck or ends.

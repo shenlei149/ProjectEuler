@@ -9,14 +9,14 @@ using namespace std;
 
 namespace ProjectEuler
 {
-long long S347::GetM(long long p, long long q, long long MAX)
+int64_t S347::GetM(int64_t p, int64_t q, int64_t MAX)
 {
-	long long best = 0;
+	int64_t best = 0;
 
-	long long p_pow = p;
+	int64_t p_pow = p;
 	while (p_pow * q <= MAX)
 	{
-		long long temp = p_pow * q;
+		int64_t temp = p_pow * q;
 		while (temp * q <= MAX)
 		{
 			temp *= q;
@@ -37,10 +37,10 @@ long long S347::GetM(long long p, long long q, long long MAX)
 
 std::string S347::GetAnswer()
 {
-	long long MAX = 10000000;
+	int64_t MAX = 10000000;
 	auto primes = Utils::GenPrimes(MAX / 2);
 
-	long long sum = 0;
+	int64_t sum = 0;
 	// Optimization: if p*q > MAX, break inner.
 	// If p*2 > MAX, break outer.
 
@@ -52,7 +52,7 @@ std::string S347::GetAnswer()
 
 	for (size_t i = 0; i < primes.size(); ++i)
 	{
-		long long p = primes[i];
+		int64_t p = primes[i];
 		if (p * p > MAX)
 		{
 			break; // Optimization: q > p, so p*q > p*p. If p*p > MAX, then p*q > MAX.
@@ -60,7 +60,7 @@ std::string S347::GetAnswer()
 
 		for (size_t j = i + 1; j < primes.size(); ++j)
 		{
-			long long q = primes[j];
+			int64_t q = primes[j];
 			if (p * q > MAX)
 			{
 				break;

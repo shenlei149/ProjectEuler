@@ -12,10 +12,10 @@ class S684 : public ISolution
 {
 public:
 	std::string GetAnswer() override;
-	long long S(long long f);
-	long long GetRemainder(long long l);
+	int64_t S(int64_t f);
+	int64_t GetRemainder(int64_t l);
 
 private:
-	long long Mod = 1000000007;
+	int64_t Mod = 1000000007;
 };
 } // namespace ProjectEuler

@@ -10,21 +10,21 @@ using namespace std;
 namespace ProjectEuler
 {
 // Member function to match header?
-long long S429::PowMod(long long p, int e, long long m) { return Utils::Pow(p, (long long)e, m); }
+int64_t S429::PowMod(int64_t p, int e, int64_t m) { return Utils::Pow(p, (int64_t)e, m); }
 
 std::string S429::GetAnswer()
 {
-	long long N = 100000000;
-	long long MOD = 1000000009;
+	int64_t N = 100000000;
+	int64_t MOD = 1000000009;
 
 	auto primes = Utils::GenPrimes(N);
 
-	long long ans = 1;
+	int64_t ans = 1;
 
-	for (long long p : primes)
+	for (int64_t p : primes)
 	{
-		long long exponent = 0;
-		long long temp = p;
+		int64_t exponent = 0;
+		int64_t temp = p;
 
 		while (true)
 		{
@@ -42,8 +42,8 @@ std::string S429::GetAnswer()
 		// MOD = 1000000009 is prime.
 		// So exponent reduces modulo MOD-1.
 
-		long long expReduced = (2 * exponent) % (MOD - 1);
-		long long term = Utils::Pow(p, expReduced, MOD);
+		int64_t expReduced = (2 * exponent) % (MOD - 1);
+		int64_t term = Utils::Pow(p, expReduced, MOD);
 		term = (term + 1) % MOD;
 
 		ans = (ans * term) % MOD;

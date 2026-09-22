@@ -32,8 +32,8 @@ std::string S87::GetAnswer()
 
 	for (int i = 0; i < primes.size(); i++)
 	{
-		long long p1 = primes[i];
-		long long sq = p1 * p1;
+		int64_t p1 = primes[i];
+		int64_t sq = p1 * p1;
 		if (sq >= MAX)
 		{
 			break;
@@ -41,8 +41,8 @@ std::string S87::GetAnswer()
 
 		for (int j = 0; j < primes.size(); j++)
 		{
-			long long p2 = primes[j];
-			long long cb = p2 * p2 * p2;
+			int64_t p2 = primes[j];
+			int64_t cb = p2 * p2 * p2;
 			if (sq + cb >= MAX)
 			{
 				break;
@@ -50,8 +50,8 @@ std::string S87::GetAnswer()
 
 			for (int k = 0; k < primes.size(); k++)
 			{
-				long long p3 = primes[k];
-				long long qd = p3 * p3 * p3 * p3;
+				int64_t p3 = primes[k];
+				int64_t qd = p3 * p3 * p3 * p3;
 				if (sq + cb + qd >= MAX)
 				{
 					break;

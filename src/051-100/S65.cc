@@ -13,7 +13,7 @@ std::string S65::GetAnswer()
 
 	for (int i = 0; i < 100; i++)
 	{
-		long long a;
+		int64_t a;
 		if (i == 0)
 		{
 			a = 2;

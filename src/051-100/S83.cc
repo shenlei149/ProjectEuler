@@ -23,11 +23,11 @@ std::string S83::GetAnswer()
 
 	// Dijkstra
 	// dist[i][j]
-	std::vector<std::vector<long long>> dist(rows, std::vector<long long>(cols, LLONG_MAX));
+	std::vector<std::vector<int64_t>> dist(rows, std::vector<int64_t>(cols, LLONG_MAX));
 
 	// Priority queue stores {cost, r, c}
 	// Min-heap
-	using State = std::tuple<long long, int, int>;
+	using State = std::tuple<int64_t, int, int>;
 	std::priority_queue<State, std::vector<State>, std::greater<State>> pq;
 
 	dist[0][0] = matrix[0][0];

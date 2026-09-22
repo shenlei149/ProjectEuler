@@ -20,7 +20,7 @@ std::string S205::GetAnswer()
 	GenPeterResults("", 0);
 	for (const auto &s : PeterResults)
 	{
-		long long sum = 0;
+		int64_t sum = 0;
 		for (char c : s)
 		{
 			sum += (c - '0');
@@ -34,7 +34,7 @@ std::string S205::GetAnswer()
 	GenColinResults("", 0);
 	for (const auto &s : ColinResults)
 	{
-		long long sum = 0;
+		int64_t sum = 0;
 		for (char c : s)
 		{
 			sum += (c - '0');
@@ -45,14 +45,14 @@ std::string S205::GetAnswer()
 		}
 	}
 
-	long long numerator = 0;
+	int64_t numerator = 0;
 	for (size_t p = 1; p < Peter.size(); p++)
 	{
 		for (size_t c = 1; c < Colin.size(); c++)
 		{
 			if (p > c)
 			{
-				numerator += (long long)Peter[p] * Colin[c];
+				numerator += (int64_t)Peter[p] * Colin[c];
 			}
 		}
 	}

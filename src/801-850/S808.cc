@@ -10,9 +10,9 @@ using namespace std;
 
 namespace ProjectEuler
 {
-long long Reverse(long long n)
+int64_t Reverse(int64_t n)
 {
-	long long rev = 0;
+	int64_t rev = 0;
 	while (n > 0)
 	{
 		rev = rev * 10 + n % 10;
@@ -21,14 +21,14 @@ long long Reverse(long long n)
 	return rev;
 }
 
-bool IsSquare(long long n)
+bool IsSquare(int64_t n)
 {
-	long long root = (long long)std::sqrt(n);
+	int64_t root = (int64_t)std::sqrt(n);
 	return root * root == n;
 }
 
 // Check if n is prime
-bool IsPrime(long long n, const std::vector<bool> &is_prime)
+bool IsPrime(int64_t n, const std::vector<bool> &is_prime)
 {
 	if (n < is_prime.size())
 	{
@@ -51,7 +51,7 @@ std::string S808::GetAnswer()
 	// Check squares
 	// We need 50 reversible prime squares.
 	int count = 0;
-	long long sum = 0;
+	int64_t sum = 0;
 
 	// Use a set or hash for fast lookup of squares?
 	// Or check if reverse is square.
@@ -65,7 +65,7 @@ std::string S808::GetAnswer()
 	// So sieve of 4e7 is enough to check x.
 
 	std::vector<bool> is_prime_sieve(limit + 1, false);
-	for (long long p : primes_long)
+	for (int64_t p : primes_long)
 	{
 		if (p <= limit)
 		{
@@ -73,17 +73,17 @@ std::string S808::GetAnswer()
 		}
 	}
 
-	for (long long p : primes_long)
+	for (int64_t p : primes_long)
 	{
-		long long sq = p * p;
-		long long rev_sq = Reverse(sq);
+		int64_t sq = p * p;
+		int64_t rev_sq = Reverse(sq);
 
 		if (rev_sq == sq)
 		{
 			continue; // Palindrome not allowed? Problem says "not a palindrome"
 		}
 
-		long long root = (long long)std::round(std::sqrt(rev_sq));
+		int64_t root = (int64_t)std::round(std::sqrt(rev_sq));
 		if (root * root == rev_sq)
 		{
 			// Check if root is prime

@@ -7,13 +7,13 @@ using namespace std;
 
 namespace ProjectEuler
 {
-long long S684::GetRemainder(long long l)
+int64_t S684::GetRemainder(int64_t l)
 {
 	// Compute 10^l % Mod
-	long long res = 1;
-	long long base = 10;
-	long long exp = l;
-	long long mod = 1000000007;
+	int64_t res = 1;
+	int64_t base = 10;
+	int64_t exp = l;
+	int64_t mod = 1000000007;
 
 	while (exp > 0)
 	{
@@ -27,13 +27,13 @@ long long S684::GetRemainder(long long l)
 	return res;
 }
 
-long long S684::S(long long f)
+int64_t S684::S(int64_t f)
 {
-	long long Mod = 1000000007;
-	long long L = f / 9;
-	long long r = f % 9;
+	int64_t Mod = 1000000007;
+	int64_t L = f / 9;
+	int64_t r = f % 9;
 
-	long long remainder = GetRemainder(L);
+	int64_t remainder = GetRemainder(L);
 
 	// s(n) = r * 10^L + (10^L - 1)
 	// Sum S(n) involves geometric series.
@@ -43,11 +43,11 @@ long long S684::S(long long f)
 	// second = 6 * 10^L - 6 - 9*L.
 	// Result = first + second.
 
-	long long term1 = (r * r + 3 * r) / 2;
-	long long first = (__int128)term1 * remainder % Mod;
+	int64_t term1 = (r * r + 3 * r) / 2;
+	int64_t first = (__int128)term1 * remainder % Mod;
 	first = (first - r + Mod) % Mod;
 
-	long long second = (6 * remainder) % Mod;
+	int64_t second = (6 * remainder) % Mod;
 	second = (second - 6 + Mod) % Mod;
 	second = (second - (9 * (L % Mod)) % Mod + Mod) % Mod;
 
@@ -56,23 +56,23 @@ long long S684::S(long long f)
 
 std::string S684::GetAnswer()
 {
-	std::vector<long long> fibonacci;
-	long long f0 = 0;
-	long long f1 = 1;
+	std::vector<int64_t> fibonacci;
+	int64_t f0 = 0;
+	int64_t f1 = 1;
 	// f(2)=1, f(3)=2, ... f(90).
 	// Problem asks for Sum S(f_i) for 2 <= i <= 90.
 	// i=2: f=1.
 
 	for (int i = 2; i <= 90; i++)
 	{
-		long long f2 = f0 + f1;
+		int64_t f2 = f0 + f1;
 		fibonacci.push_back(f2);
 		f0 = f1;
 		f1 = f2;
 	}
 
-	long long result = 0;
-	long long Mod = 1000000007;
+	int64_t result = 0;
+	int64_t Mod = 1000000007;
 
 	for (auto f : fibonacci)
 	{

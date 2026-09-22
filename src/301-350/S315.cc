@@ -33,7 +33,7 @@ std::string S315::GetAnswer()
 		}
 	}
 
-	long long count = 0;
+	int64_t count = 0;
 	const int MAX = 20000000;
 	auto primes = Utils::GenPrimes(MAX);
 
@@ -60,10 +60,10 @@ std::string S315::GetAnswer()
 
 			// Let's trust the logic `GetCount` implements the overlap sum.
 
-			long long current = p;
+			int64_t current = p;
 			while (current >= 10)
 			{
-				long long next = Utils::DigitSum(current);
+				int64_t next = Utils::DigitSum(current);
 				count += GetCount((int)current, (int)next) * 2;
 				current = next;
 			}

@@ -13,14 +13,14 @@ namespace ProjectEuler
 {
 std::string S203::GetAnswer()
 {
-	std::vector<std::vector<long long>> rows;
+	std::vector<std::vector<int64_t>> rows;
 	rows.reserve(51);
 
-	std::set<long long> distinctNumbers;
+	std::set<int64_t> distinctNumbers;
 
 	for (int i = 0; i < 51; i++)
 	{
-		std::vector<long long> row(i + 1);
+		std::vector<int64_t> row(i + 1);
 		for (int j = 0; j <= i; j++)
 		{
 			if (j == 0 || j == i)
@@ -42,18 +42,18 @@ std::string S203::GetAnswer()
 		return "0";
 	}
 
-	long long maxVal = *distinctNumbers.rbegin();
-	long long primeLimit = (long long)std::sqrt(maxVal);
+	int64_t maxVal = *distinctNumbers.rbegin();
+	int64_t primeLimit = (int64_t)std::sqrt(maxVal);
 
 	auto primes = Utils::GenPrimes(primeLimit + 1);
 
-	long long sum = 0;
-	for (long long n : distinctNumbers)
+	int64_t sum = 0;
+	for (int64_t n : distinctNumbers)
 	{
 		bool isSquareFree = true;
-		for (long long p : primes)
+		for (int64_t p : primes)
 		{
-			long long sq = p * p;
+			int64_t sq = p * p;
 			if (sq > n)
 			{
 				break;

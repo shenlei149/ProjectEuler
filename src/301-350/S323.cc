@@ -43,7 +43,7 @@ std::string S323::GetAnswer()
 		Probability current = probabilities[i];
 		BigInt times = ansDenominator / current.Denominator;
 		// times * current.Numerator * i
-		ansNumerator += times * current.Numerator * (long long)i;
+		ansNumerator += times * current.Numerator * (int64_t)i;
 	}
 
 	// Expected value = ansNumerator / ansDenominator.
@@ -51,13 +51,13 @@ std::string S323::GetAnswer()
 	BigInt times10 = (ansNumerator * 10000000000LL) / ansDenominator;
 
 	// Convert to double.
-	// times10 should fit in long long because answer is small ~6.35.
+	// times10 should fit in int64_t because answer is small ~6.35.
 	// 6.35 * 10^10 ~ 6*10^10 < 9*10^18.
 
 	// But BigInt might not have implicit conversion.
 	// Assuming ToString() exists.
 	std::string s = times10.ToString();
-	long long val = std::stoll(s);
+	int64_t val = std::stoll(s);
 
 	double answer = (double)val / 10000000000.0;
 

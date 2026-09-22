@@ -7,20 +7,20 @@ namespace ProjectEuler
 {
 std::string S113::GetAnswer()
 {
-	long long increasing = GetIncreasingCount();
-	long long decreasing = GetDecreasingCount();
+	int64_t increasing = GetIncreasingCount();
+	int64_t decreasing = GetDecreasingCount();
 
 	return std::to_string((increasing + decreasing - 9 * Power));
 }
 
-long long S113::GetDecreasingCount()
+int64_t S113::GetDecreasingCount()
 {
 	//          9,8,7...,2,1,0
 	// 1 digits 1,1,1...,1,1,1
 	// 2 digits
 	// n digits
-	std::vector<std::vector<long long>> matrix(Power, std::vector<long long>(10));
-	long long total = 0;
+	std::vector<std::vector<int64_t>> matrix(Power, std::vector<int64_t>(10));
+	int64_t total = 0;
 	for (int i = 0; i < 10; i++)
 	{
 		matrix[0][i] = 1;
@@ -29,7 +29,7 @@ long long S113::GetDecreasingCount()
 
 	for (int i = 1; i < Power; i++)
 	{
-		long long count = 0;
+		int64_t count = 0;
 		for (int j = 0; j < 10; j++)
 		{
 			count += matrix[i - 1][j];
@@ -40,14 +40,14 @@ long long S113::GetDecreasingCount()
 	return total - Power; // Remove "0" cases (0, 00, 000...)
 }
 
-long long S113::GetIncreasingCount()
+int64_t S113::GetIncreasingCount()
 {
 	//          9,8,7...,3,2,1
 	// 1 digits 1,1,1...,1,1,1
 	// 2 digits
 	// n digits
-	std::vector<std::vector<long long>> matrix(Power, std::vector<long long>(9));
-	long long total = 0;
+	std::vector<std::vector<int64_t>> matrix(Power, std::vector<int64_t>(9));
+	int64_t total = 0;
 	for (int i = 0; i < 9; i++)
 	{
 		matrix[0][i] = 1;
@@ -56,7 +56,7 @@ long long S113::GetIncreasingCount()
 
 	for (int i = 1; i < Power; i++)
 	{
-		long long count = 0;
+		int64_t count = 0;
 		for (int j = 0; j < 9; j++)
 		{
 			count += matrix[i - 1][j];

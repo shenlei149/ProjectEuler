@@ -12,6 +12,6 @@ class S429 : public ISolution
 {
 public:
 	std::string GetAnswer() override;
-	long long PowMod(long long p, int k, long long m);
+	int64_t PowMod(int64_t p, int k, int64_t m);
 };
 } // namespace ProjectEuler

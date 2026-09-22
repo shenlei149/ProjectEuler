@@ -11,8 +11,8 @@ std::string S100::GetAnswer()
 
 	for (int i = 1;; i++)
 	{
-		long long x = (long long)((std::pow(1 + sqrt2, 2 * i - 1) + std::pow(1 - sqrt2, 2 * i - 1)) / 2) + 1;
-		long long y = (long long)((std::pow(1 + sqrt2, 2 * i - 1) - std::pow(1 - sqrt2, 2 * i - 1)) / 2 / sqrt2) + 1;
+		int64_t x = (int64_t)((std::pow(1 + sqrt2, 2 * i - 1) + std::pow(1 - sqrt2, 2 * i - 1)) / 2) + 1;
+		int64_t y = (int64_t)((std::pow(1 + sqrt2, 2 * i - 1) - std::pow(1 - sqrt2, 2 * i - 1)) / 2 / sqrt2) + 1;
 
 		if (x > 2000000000000)
 		{

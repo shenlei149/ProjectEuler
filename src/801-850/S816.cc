@@ -13,7 +13,7 @@ namespace ProjectEuler
 {
 struct Point
 {
-	long long x, y;
+	int64_t x, y;
 
 	bool operator<(const Point &other) const
 	{
@@ -34,9 +34,9 @@ std::string S816::GetAnswer()
 	// s_n+1 = s_n^2 mod 50515093
 	// P_n = (s_2n, s_2n+1)
 
-	std::vector<long long> s(2 * k);
-	long long curr = 290797;
-	long long mod = 50515093;
+	std::vector<int64_t> s(2 * k);
+	int64_t curr = 290797;
+	int64_t mod = 50515093;
 
 	s[0] = curr;
 	for (int i = 1; i < 2 * k; ++i)
@@ -90,21 +90,21 @@ std::string S816::GetAnswer()
 	*/
 	// This is exactly what I described.
 
-	long long d_sq = -1; // -1 means unset
+	int64_t d_sq = -1; // -1 means unset
 
 	for (int i = 0; i < k; ++i)
 	{
 		for (int j = i + 1; j < k; ++j)
 		{
-			long long dx = P[j].x - P[i].x;
-			long long dy = P[j].y - P[i].y; // can be negative
+			int64_t dx = P[j].x - P[i].x;
+			int64_t dy = P[j].y - P[i].y; // can be negative
 
 			if (d_sq != -1 && dx * dx >= d_sq)
 			{
 				break;
 			}
 
-			long long dist = dx * dx + dy * dy;
+			int64_t dist = dx * dx + dy * dy;
 			if (d_sq == -1 || dist < d_sq)
 			{
 				d_sq = dist;
