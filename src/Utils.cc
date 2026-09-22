@@ -109,8 +109,7 @@ std::vector<int64_t> Utils::TrialDivisionFactor(int64_t n, const std::vector<int
 				do
 				{
 					n /= primes[index];
-				}
-				while (n % primes[index] == 0);
+				} while (n % primes[index] == 0);
 			}
 			if (n == 1)
 			{

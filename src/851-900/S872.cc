@@ -9,7 +9,7 @@ namespace ProjectEuler
 std::string S872::GetAnswer()
 {
 	int64_t root = 100000000000000000LL; // 10^17
-	int64_t find = 16677181699666569LL;  // 9^17
+	int64_t find = 16677181699666569LL;	 // 9^17
 	int64_t sum = root;
 	int64_t diff = root - find;
 

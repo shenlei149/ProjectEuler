@@ -106,8 +106,7 @@ bool S32::IsPandigitalProduct(int i, std::vector<char> factorDigits)
 				int n2 = CharsToInt(v2);
 				cache[key].insert(n1 * n2);
 			}
-		}
-		while (std::next_permutation(factorDigits.begin(), factorDigits.end()));
+		} while (std::next_permutation(factorDigits.begin(), factorDigits.end()));
 	}
 
 	return cache[key].count(i) > 0;

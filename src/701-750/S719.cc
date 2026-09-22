@@ -10,7 +10,7 @@ namespace ProjectEuler
 {
 std::string S719::GetAnswer()
 {
-	int64_t N = 1000000000000LL;	// 10^12
+	int64_t N = 1000000000000LL;  // 10^12
 	int64_t root_limit = 1000000; // sqrt(10^12)
 
 	int64_t sum = 0;

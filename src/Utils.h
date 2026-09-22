@@ -114,8 +114,7 @@ public:
 		do
 		{
 			result.push_back(source);
-		}
-		while (std::next_permutation(source.begin(), source.end()));
+		} while (std::next_permutation(source.begin(), source.end()));
 		return result;
 	}
 

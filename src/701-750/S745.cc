@@ -11,7 +11,7 @@ namespace ProjectEuler
 std::string S745::GetAnswer()
 {
 	int64_t N = 100000000000000LL; // 10^14
-	int64_t NSqrt = 10000000LL;	 // 10^7
+	int64_t NSqrt = 10000000LL;	   // 10^7
 	int64_t Mod = 1000000007;
 
 	std::vector<int64_t> counts(NSqrt + 1);
